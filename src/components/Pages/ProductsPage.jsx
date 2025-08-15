@@ -225,21 +225,21 @@ const ProductsPage = () => {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {products.map((product) => (
-                  <div key={product._id} className="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition-shadow">
+                {products.map((product, index) => (
+                  <div key={product._id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
                     <Link to={`/products/${product._id}`}>
                       <div className="aspect-w-1 aspect-h-1 w-full">
                         <img
                           src={product.images[0] || 'https://via.placeholder.com/300x300?text=No+Image'}
                           alt={product.name}
-                          className="w-full h-48 object-cover"
+                          className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
                         />
                       </div>
                     </Link>
                     
                     <div className="p-4">
                       <Link to={`/products/${product._id}`}>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2 hover:text-blue-600">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2 hover:text-purple-600 transition-colors duration-300">
                           {product.name}
                         </h3>
                       </Link>
@@ -281,7 +281,7 @@ const ProductsPage = () => {
                       <div className="flex space-x-2">
                         <button
                           onClick={() => handleAddToCart(product)}
-                          className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors flex items-center justify-center"
+                          className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-md hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center shadow-lg hover:shadow-xl"
                         >
                           <ShoppingCart className="h-4 w-4 mr-2" />
                           Add to Cart

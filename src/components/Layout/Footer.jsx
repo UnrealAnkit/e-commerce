@@ -51,13 +51,13 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">S</span>
+              <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-lg">F</span>
               </div>
-              <span className="text-xl font-bold">StyleStore</span>
+              <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">FashionHub</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Discover the latest trends in fashion and accessories. 
+              Discover the latest trends in fashion and accessories at FashionHub. 
               Shop with confidence knowing you're getting quality products at great prices.
             </p>
             
@@ -65,7 +65,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-gray-400" />
-                <span className="text-gray-300">support@stylestore.com</span>
+                <span className="text-gray-300">support@fashionhub.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-gray-400" />
@@ -133,9 +133,9 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © {currentYear} StyleStore. All rights reserved.
-            </p>
+                         <p className="text-gray-400 text-sm">
+               © {currentYear} FashionHub. All rights reserved.
+             </p>
             
             {/* Social Links */}
             <div className="flex space-x-4 mt-4 md:mt-0">
