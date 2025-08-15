@@ -31,7 +31,7 @@ router.post('/register', [
       });
     }
 
-    const { name, email, password } = req.body;
+    const { name, email, password, phone } = req.body;
 
     // Check if user already exists
     const existingUser = await User.findOne({ email });
@@ -43,7 +43,12 @@ router.post('/register', [
     }
 
     // Create user
-    const user = new User({ name, email, password });
+    const userData = { name, email, password };
+    if (phone) {
+      userData.phone = phone;
+    }
+    
+    const user = new User(userData);
     await user.save();
 
     // Generate token
@@ -56,7 +61,8 @@ router.post('/register', [
       user: {
         id: user._id,
         name: user.name,
-        email: user.email
+        email: user.email,
+        phone: user.phone
       }
     });
   } catch (error) {

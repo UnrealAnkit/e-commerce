@@ -33,7 +33,9 @@ app.use(cors({
     process.env.ADMIN_URL || 'http://localhost:3001',
     'http://localhost:5174',
     'http://localhost:5175',
-    'http://localhost:5176'
+    'http://localhost:5176',
+    'http://192.168.29.10:5173',
+    'http://192.168.29.10:3000'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -85,9 +87,10 @@ const connectDB = async () => {
 // Start server
 const startServer = async () => {
   await connectDB();
-  app.listen(PORT, () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 E-commerce Server running on port ${PORT}`);
     console.log(`📱 Client URL: ${process.env.CLIENT_URL || 'http://localhost:5173'}`);
+    console.log(`🌐 Network URL: http://192.168.29.10:${PORT}`);
     console.log(`⚙️  Admin URL: ${process.env.ADMIN_URL || 'http://localhost:3001'}`);
     console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
   });
