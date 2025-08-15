@@ -153,4 +153,53 @@ router.get('/me', authenticate, async (req, res) => {
   }
 });
 
+// Temporary admin creation endpoint (for development only)
+router.post('/create-admin', async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+
+    // Check if user already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({
+        success: false,
+        message: 'User with this email already exists'
+      });
+    }
+
+    // Create admin user
+    const user = new User({
+      name,
+      email,
+      password,
+      role: 'admin',
+      isVerified: true
+    });
+    await user.save();
+
+    // Generate token
+    const token = generateToken(user._id);
+
+    res.status(201).json({
+      success: true,
+      message: 'Admin user created successfully',
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        isBlocked: user.isBlocked,
+        isVerified: user.isVerified
+      }
+    });
+  } catch (error) {
+    console.error('Create admin error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error during admin creation'
+    });
+  }
+});
+
 export default router;
