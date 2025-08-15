@@ -24,6 +24,7 @@ import NotFoundPage from './components/Pages/NotFoundPage';
 import AdminLayout from './components/Admin/AdminLayout';
 import AdminDashboard from './components/Admin/AdminDashboard';
 import AdminLogin from './components/Admin/AdminLogin';
+import UsersManagement from './components/Admin/UsersManagement';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -156,6 +157,7 @@ const AppContent = () => {
               }
             >
               <Route index element={<AdminDashboard />} />
+              <Route path="users" element={<UsersManagement />} />
               {/* Add more admin routes here */}
             </Route>
             

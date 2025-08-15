@@ -24,15 +24,19 @@ const AdminLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await dispatch(loginUser(formData));
-    if (!result.error) {
-      // Check if user is admin
-      if (result.payload.user.role === 'admin') {
-        navigate('/admin');
-      } else {
-        // If not admin, redirect to regular user area
-        navigate('/');
+    try {
+      const result = await dispatch(loginUser(formData));
+      if (!result.error) {
+        // Check if user is admin
+        if (result.payload && result.payload.user && result.payload.user.role === 'admin') {
+          navigate('/admin');
+        } else {
+          // If not admin, redirect to regular user area
+          navigate('/');
+        }
       }
+    } catch (error) {
+      console.error('Login error:', error);
     }
   };
 

@@ -13,6 +13,7 @@ export const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: ['persist/PERSIST'],
+        ignoredPaths: ['payload.headers'],
       },
     }),
   devTools: process.env.NODE_ENV !== 'production',
