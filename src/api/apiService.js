@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://e-commerce-du5a.onrender.com/api';
+const API_BASE_URL = 'https://e-commerce-du5a.onrender.com/api';
 
 // Create axios instance
 const api = axios.create({
@@ -9,6 +9,9 @@ const api = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+// Debug: Log the base URL
+console.log('API Base URL:', API_BASE_URL);
 
 // Request interceptor to add auth token
 api.interceptors.request.use(
