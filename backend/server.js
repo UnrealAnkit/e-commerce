@@ -33,6 +33,7 @@ app.use(cors({
     process.env.ADMIN_URL || 'http://localhost:3001',
     'https://dancing-pastelito-c1fe75.netlify.app',
     'https://*.netlify.app',
+    'http://localhost:5173',
     'http://localhost:5174',
     'http://localhost:5175',
     'http://localhost:5176',
