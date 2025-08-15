@@ -29,8 +29,11 @@ const UsersManagement = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true);
+      console.log('Fetching users...');
       const response = await usersAPI.getAll();
+      console.log('Users response:', response);
       setUsers(response.users || []);
+      console.log('Users set:', response.users || []);
     } catch (error) {
       console.error('Error fetching users:', error);
       setError('Failed to load users');
