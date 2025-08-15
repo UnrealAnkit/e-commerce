@@ -12,6 +12,7 @@ import {
   Calendar,
   Phone
 } from 'lucide-react';
+import { usersAPI } from '../../api/apiService';
 
 const UsersManagement = () => {
   const [users, setUsers] = useState([]);
@@ -28,22 +29,8 @@ const UsersManagement = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const token = localStorage.getItem('token');
-      
-      const response = await fetch('http://localhost:3000/api/users', {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setUsers(data.users || []);
-      } else {
-        setError(data.message || 'Failed to fetch users');
-      }
+      const response = await usersAPI.getAll();
+      setUsers(response.users || []);
     } catch (error) {
       console.error('Error fetching users:', error);
       setError('Failed to load users');
@@ -61,20 +48,9 @@ const UsersManagement = () => {
 
   const handleBlockUser = async (userId, isBlocked) => {
     try {
-      const token = localStorage.getItem('token');
+      const response = await usersAPI.update(userId, { isBlocked: !isBlocked });
       
-      const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
-        method: 'PUT',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ isBlocked: !isBlocked })
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
+      if (response.success) {
         // Update the user in the local state
         setUsers(users.map(user => 
           user._id === userId 
@@ -96,19 +72,9 @@ const UsersManagement = () => {
     }
 
     try {
-      const token = localStorage.getItem('token');
+      const response = await usersAPI.delete(userId);
       
-      const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
+      if (response.success) {
         setUsers(users.filter(user => user._id !== userId));
       } else {
         alert('Failed to delete user');

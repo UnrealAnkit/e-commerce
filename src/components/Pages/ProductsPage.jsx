@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { Star, ShoppingCart, Heart, Filter, Search } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../store/slices/cartSlice';
+import { productsAPI } from '../../api/apiService';
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -35,14 +36,8 @@ const ProductsPage = () => {
       if (filters.minPrice) params.append('minPrice', filters.minPrice);
       if (filters.maxPrice) params.append('maxPrice', filters.maxPrice);
 
-      const response = await fetch(`http://localhost:3000/api/products?${params}`);
-      const data = await response.json();
-
-      if (data.success) {
-        setProducts(data.products || []);
-      } else {
-        setError(data.message || 'Failed to fetch products');
-      }
+      const response = await productsAPI.getAll(params);
+      setProducts(response.products || []);
     } catch (error) {
       console.error('Error fetching products:', error);
       setError('Failed to load products');
