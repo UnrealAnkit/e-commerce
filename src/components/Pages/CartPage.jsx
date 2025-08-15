@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { 
   ShoppingCart, 
   Trash2, 
@@ -13,69 +14,30 @@ import {
   Star,
   X
 } from 'lucide-react';
+import { removeFromCart, updateQuantity, clearCart } from '../../store/slices/cartSlice';
 
 const CartPage = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: 'Classic White T-Shirt',
-      price: 29.99,
-      originalPrice: 39.99,
-      image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=150',
-      quantity: 2,
-      size: 'M',
-      color: 'White',
-      brand: 'StyleBrand',
-      rating: 4.5,
-      reviews: 128
-    },
-    {
-      id: 2,
-      name: 'Denim Jacket',
-      price: 89.99,
-      originalPrice: 119.99,
-      image: 'https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=150',
-      quantity: 1,
-      size: 'L',
-      color: 'Blue',
-      brand: 'DenimCo',
-      rating: 4.8,
-      reviews: 95
-    },
-    {
-      id: 3,
-      name: 'Summer Dress',
-      price: 59.99,
-      originalPrice: 79.99,
-      image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=150',
-      quantity: 1,
-      size: 'S',
-      color: 'White',
-      brand: 'FashionLine',
-      rating: 4.3,
-      reviews: 67
-    }
-  ]);
-
+  const dispatch = useDispatch();
+  const { items, total, itemCount } = useSelector((state) => state.cart);
   const [couponCode, setCouponCode] = useState('');
   const [appliedCoupon, setAppliedCoupon] = useState(null);
 
-  const updateQuantity = (itemId, newQuantity) => {
+  const handleUpdateQuantity = (productId, size, color, newQuantity) => {
     if (newQuantity < 1) return;
-    setCartItems(items =>
-      items.map(item =>
-        item.id === itemId ? { ...item, quantity: newQuantity } : item
-      )
-    );
+    dispatch(updateQuantity({ productId, size, color, quantity: newQuantity }));
   };
 
-  const removeItem = (itemId) => {
-    setCartItems(items => items.filter(item => item.id !== itemId));
+  const handleRemoveItem = (productId, size, color) => {
+    dispatch(removeFromCart({ productId, size, color }));
   };
 
-  const moveToWishlist = (itemId) => {
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
+  const moveToWishlist = (item) => {
     // Here you would typically move item to wishlist
-    removeItem(itemId);
+    handleRemoveItem(item.product._id, item.size, item.color);
   };
 
   const applyCoupon = () => {
@@ -91,10 +53,10 @@ const CartPage = () => {
     setCouponCode('');
   };
 
-  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const subtotal = total;
   const discount = appliedCoupon ? subtotal * appliedCoupon.discount : 0;
   const shipping = subtotal > 50 ? 0 : 5.99;
-  const total = subtotal - discount + shipping;
+  const finalTotal = subtotal - discount + shipping;
 
   const features = [
     {
@@ -137,7 +99,7 @@ const CartPage = () => {
     }
   ];
 
-  if (cartItems.length === 0) {
+  if (items.length === 0) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -149,9 +111,9 @@ const CartPage = () => {
             <p className="text-gray-600 mb-8 max-w-md mx-auto">
               Looks like you haven't added any items to your cart yet. Start shopping to discover amazing fashion!
             </p>
-            <button className="btn-primary px-8 py-3 text-lg font-semibold">
+            <Link to="/" className="btn-primary px-8 py-3 text-lg font-semibold inline-block">
               Start Shopping
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -172,25 +134,28 @@ const CartPage = () => {
           <div className="flex-1">
             <div className="card-modern mb-6">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-semibold text-gray-900">Cart Items ({cartItems.length})</h2>
-                <button className="text-red-600 hover:text-red-700 text-sm font-medium flex items-center gap-2">
+                <h2 className="text-xl font-semibold text-gray-900">Cart Items ({items.length})</h2>
+                <button 
+                  onClick={handleClearCart}
+                  className="text-red-600 hover:text-red-700 text-sm font-medium flex items-center gap-2"
+                >
                   <Trash2 className="h-4 w-4" />
                   Clear All
                 </button>
               </div>
 
               <div className="space-y-6">
-                {cartItems.map((item) => (
-                  <div key={item.id} className="flex flex-col md:flex-row gap-4 p-4 border border-gray-200 rounded-lg">
+                {items.map((item, index) => (
+                  <div key={`${item.product._id}-${item.size}-${item.color}`} className="flex flex-col md:flex-row gap-4 p-4 border border-gray-200 rounded-lg">
                     {/* Product Image */}
                     <div className="relative w-full md:w-24 h-24 flex-shrink-0">
                       <img
-                        src={item.image}
-                        alt={item.name}
+                        src={item.product.image}
+                        alt={item.product.name}
                         className="w-full h-full object-cover rounded-lg"
                       />
                       <button
-                        onClick={() => removeItem(item.id)}
+                        onClick={() => handleRemoveItem(item.product._id, item.size, item.color)}
                         className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors"
                       >
                         <X className="h-3 w-3" />
@@ -201,8 +166,8 @@ const CartPage = () => {
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold text-gray-900 mb-1 truncate">{item.name}</h3>
-                          <p className="text-sm text-gray-600 mb-2">{item.brand}</p>
+                          <h3 className="font-semibold text-gray-900 mb-1 truncate">{item.product.name}</h3>
+                          <p className="text-sm text-gray-600 mb-2">{item.product.brand}</p>
                           
                           {/* Rating */}
                           <div className="flex items-center gap-2 mb-3">
@@ -211,14 +176,14 @@ const CartPage = () => {
                                 <Star
                                   key={i}
                                   className={`h-3 w-3 ${
-                                    i < Math.floor(item.rating)
+                                    i < Math.floor(item.product.rating || 4.5)
                                       ? 'text-yellow-400 fill-current'
                                       : 'text-gray-300'
                                   }`}
                                 />
                               ))}
                             </div>
-                            <span className="text-xs text-gray-600">({item.reviews})</span>
+                            <span className="text-xs text-gray-600">({item.product.reviews || 100})</span>
                           </div>
 
                           {/* Size and Color */}
@@ -232,22 +197,22 @@ const CartPage = () => {
                         <div className="flex flex-col items-end gap-4">
                           <div className="text-right">
                             <p className="text-lg font-bold text-gray-900">${item.price}</p>
-                            {item.originalPrice > item.price && (
-                              <p className="text-sm text-gray-500 line-through">${item.originalPrice}</p>
+                            {item.product.originalPrice && item.product.originalPrice > item.price && (
+                              <p className="text-sm text-gray-500 line-through">${item.product.originalPrice}</p>
                             )}
                           </div>
 
                           {/* Quantity Controls */}
                           <div className="flex items-center gap-2">
                             <button
-                              onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                              onClick={() => handleUpdateQuantity(item.product._id, item.size, item.color, item.quantity - 1)}
                               className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors"
                             >
                               <Minus className="h-3 w-3" />
                             </button>
                             <span className="w-8 text-center font-medium">{item.quantity}</span>
                             <button
-                              onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                              onClick={() => handleUpdateQuantity(item.product._id, item.size, item.color, item.quantity + 1)}
                               className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors"
                             >
                               <Plus className="h-3 w-3" />
@@ -257,14 +222,14 @@ const CartPage = () => {
                           {/* Actions */}
                           <div className="flex gap-2">
                             <button
-                              onClick={() => moveToWishlist(item.id)}
+                              onClick={() => moveToWishlist(item)}
                               className="p-2 text-gray-600 hover:text-red-500 transition-colors"
                               title="Move to Wishlist"
                             >
                               <Heart className="h-4 w-4" />
                             </button>
                             <button
-                              onClick={() => removeItem(item.id)}
+                              onClick={() => handleRemoveItem(item.product._id, item.size, item.color)}
                               className="p-2 text-gray-600 hover:text-red-500 transition-colors"
                               title="Remove Item"
                             >
@@ -377,7 +342,7 @@ const CartPage = () => {
               {/* Price Breakdown */}
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between text-gray-600">
-                  <span>Subtotal ({cartItems.reduce((sum, item) => sum + item.quantity, 0)} items)</span>
+                  <span>Subtotal ({itemCount} items)</span>
                   <span>${subtotal.toFixed(2)}</span>
                 </div>
                 {appliedCoupon && (
@@ -393,17 +358,25 @@ const CartPage = () => {
                 <div className="border-t pt-3">
                   <div className="flex justify-between text-lg font-bold text-gray-900">
                     <span>Total</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span>${finalTotal.toFixed(2)}</span>
                   </div>
                   <p className="text-sm text-gray-600 mt-1">Including tax</p>
                 </div>
               </div>
 
-              {/* Checkout Button */}
-              <button className="btn-primary w-full py-4 text-lg font-semibold flex items-center justify-center gap-2">
-                Proceed to Checkout
-                <ArrowRight className="h-5 w-5" />
-              </button>
+              {/* Action Buttons */}
+              <div className="space-y-3">
+                <button className="btn-primary w-full py-4 text-lg font-semibold flex items-center justify-center gap-2">
+                  Proceed to Checkout
+                  <ArrowRight className="h-5 w-5" />
+                </button>
+                <Link 
+                  to="/" 
+                  className="btn-secondary w-full py-3 text-center block"
+                >
+                  Continue Shopping
+                </Link>
+              </div>
 
               {/* Security Notice */}
               <div className="mt-4 text-center">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { 
   ArrowRight, 
   Star, 
@@ -26,11 +26,42 @@ import {
   Play,
   Quote
 } from 'lucide-react';
+import AddToCartModal from '../UI/AddToCartModal';
+import Toast from '../UI/Toast';
 
 const HomePage = () => {
+  const dispatch = useDispatch();
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [showToast, setShowToast] = useState(false);
   const { isAuthenticated } = useSelector((state) => state.auth);
+
+  const handleAddToCart = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleAddToWishlist = (product) => {
+    // Here you would typically add to wishlist
+    console.log('Added to wishlist:', product.name);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
+  const showSuccessMessage = (message) => {
+    setToastMessage(message);
+    setShowToast(true);
+  };
+
+  const hideToast = () => {
+    setShowToast(false);
+  };
 
   useEffect(() => {
     // Simulate loading featured products
@@ -361,7 +392,11 @@ const HomePage = () => {
                        alt={product.name}
                        className="w-full h-64 object-cover rounded-t-2xl"
                      />
-                                         <button className="btn-floating absolute top-3 right-3 animate-bounce-in" style={{animationDelay: '0.5s'}}>
+                                         <button 
+                       className="btn-floating absolute top-3 right-3 animate-bounce-in" 
+                       style={{animationDelay: '0.5s'}}
+                       onClick={() => handleAddToWishlist(product)}
+                     >
                        <Heart className="h-5 w-5 text-white animate-heartbeat" />
                      </button>
                                          {product.originalPrice > product.price && (
@@ -397,7 +432,7 @@ const HomePage = () => {
                           <span className="text-gray-500 line-through">${product.originalPrice}</span>
                         )}
                       </div>
-                      <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-2 rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-110 shadow-lg">
+                      <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-2 rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-110 shadow-lg" onClick={() => handleAddToCart(product)}>
                         <ShoppingCart className="h-5 w-5" />
                       </button>
                     </div>
@@ -470,7 +505,10 @@ const HomePage = () => {
                                      <div className="absolute top-3 left-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">
                      {product.badge}
                    </div>
-                   <button className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                   <button 
+                     className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors"
+                     onClick={() => handleAddToWishlist(product)}
+                   >
                      <Heart className="h-5 w-5 text-gray-600" />
                    </button>
                 </div>
@@ -497,7 +535,7 @@ const HomePage = () => {
                       <span className="font-bold text-lg">${product.price}</span>
                       <span className="text-gray-500 line-through">${product.originalPrice}</span>
                     </div>
-                    <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-2 rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-110 shadow-lg">
+                    <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-2 rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-110 shadow-lg" onClick={() => handleAddToCart(product)}>
                       <ShoppingCart className="h-5 w-5" />
                     </button>
                   </div>
@@ -610,6 +648,22 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+             {/* Add To Cart Modal */}
+       <AddToCartModal
+         product={selectedProduct}
+         isOpen={isModalOpen}
+         onClose={closeModal}
+         onSuccess={showSuccessMessage}
+       />
+
+       {/* Toast Notification */}
+       <Toast
+         message={toastMessage}
+         type="success"
+         isVisible={showToast}
+         onClose={hideToast}
+       />
     </div>
   );
 };
