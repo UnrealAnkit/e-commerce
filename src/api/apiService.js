@@ -61,13 +61,34 @@ export const authAPI = {
 
 // Products API
 export const productsAPI = {
-  getAll: (params) => api.get('/products', { params }),
-  getById: (id) => api.get(`/products/${id}`),
-  create: (productData) => api.post('/products', productData),
-  update: (id, productData) => api.put(`/products/${id}`, productData),
-  delete: (id) => api.delete(`/products/${id}`),
-  getFeatured: () => api.get('/products/featured/products'),
-  addReview: (id, reviewData) => api.post(`/products/${id}/reviews`, reviewData),
+  getAll: async (params) => {
+    const response = await api.get('/products', { params });
+    return response.data;
+  },
+  getById: async (id) => {
+    const response = await api.get(`/products/${id}`);
+    return response.data;
+  },
+  create: async (productData) => {
+    const response = await api.post('/products', productData);
+    return response.data;
+  },
+  update: async (id, productData) => {
+    const response = await api.put(`/products/${id}`, productData);
+    return response.data;
+  },
+  delete: async (id) => {
+    const response = await api.delete(`/products/${id}`);
+    return response.data;
+  },
+  getFeatured: async () => {
+    const response = await api.get('/products/featured/products');
+    return response.data;
+  },
+  addReview: async (id, reviewData) => {
+    const response = await api.post(`/products/${id}/reviews`, reviewData);
+    return response.data;
+  },
 };
 
 // Categories API
@@ -90,12 +111,30 @@ export const ordersAPI = {
 
 // Users API
 export const usersAPI = {
-  getProfile: () => api.get('/users/profile'),
-  updateProfile: (profileData) => api.put('/users/profile', profileData),
-  getAll: (params) => api.get('/users', { params }),
-  getById: (id) => api.get(`/users/${id}`),
-  update: (id, userData) => api.put(`/users/${id}`, userData),
-  delete: (id) => api.delete(`/users/${id}`),
+  getProfile: async () => {
+    const response = await api.get('/users/profile');
+    return response.data;
+  },
+  updateProfile: async (profileData) => {
+    const response = await api.put('/users/profile', profileData);
+    return response.data;
+  },
+  getAll: async (params) => {
+    const response = await api.get('/users', { params });
+    return response.data;
+  },
+  getById: async (id) => {
+    const response = await api.get(`/users/${id}`);
+    return response.data;
+  },
+  update: async (id, userData) => {
+    const response = await api.put(`/users/${id}`, userData);
+    return response.data;
+  },
+  delete: async (id) => {
+    const response = await api.delete(`/users/${id}`);
+    return response.data;
+  },
 };
 
 // Payments API
