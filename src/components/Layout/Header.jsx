@@ -45,21 +45,21 @@ const Header = () => {
      return (
      <header className="glass sticky top-0 z-50 backdrop-blur-md">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-         <div className="flex justify-between items-center h-20">
+         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-                     <Link to="/" className="flex items-center space-x-3 group">
-             <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center shadow-strong transform group-hover:scale-110 transition-all duration-300 hover:rotate-3">
-               <span className="text-white font-bold text-xl">F</span>
+                     <Link to="/" className="flex items-center space-x-2 group">
+             <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center shadow-strong transform group-hover:scale-110 transition-all duration-300 hover:rotate-3">
+               <span className="text-white font-bold text-lg">F</span>
              </div>
-             <span className="text-2xl font-bold text-gradient-primary group-hover:scale-105 transition-all duration-300">FashionHub</span>
+             <span className="text-xl font-bold text-gradient-primary group-hover:scale-105 transition-all duration-300">FashionHub</span>
            </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-10">
-            <Link 
-              to="/" 
-              className="text-gray-700 hover:text-gradient-primary font-semibold transition-all duration-300 hover:scale-105 relative group text-lg"
-            >
+          <nav className="hidden md:flex items-center space-x-6">
+                         <Link 
+               to="/" 
+               className="text-gray-700 hover:text-gradient-primary font-semibold transition-all duration-300 hover:scale-105 relative group text-base"
+             >
               Home
               <span className="absolute -bottom-1 left-0 w-0 h-1 gradient-primary group-hover:w-full transition-all duration-300 rounded-full"></span>
             </Link>
@@ -94,39 +94,39 @@ const Header = () => {
           </nav>
 
           {/* Search Bar */}
-          <div className="hidden md:flex flex-1 max-w-md mx-8">
+          <div className="hidden md:flex flex-1 max-w-sm mx-4">
             <form onSubmit={handleSearch} className="w-full">
               <div className="relative group">
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="input-modern w-full pl-12 pr-4 py-3 text-lg"
-                />
-                <Search className="absolute left-4 top-3.5 h-6 w-6 text-gray-400" />
+                                 <input
+                   type="text"
+                   placeholder="Search products..."
+                   value={searchQuery}
+                   onChange={(e) => setSearchQuery(e.target.value)}
+                   className="input-modern w-full pl-10 pr-4 py-2 text-sm"
+                 />
+                                 <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
               </div>
             </form>
           </div>
 
           {/* Right Side Icons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
             {/* Wishlist */}
             {isAuthenticated && (
-              <Link 
-                to="/wishlist" 
-                className="p-2 text-gray-700 hover:text-blue-600 transition-colors relative"
-              >
-                <Heart className="h-6 w-6" />
-              </Link>
+                             <Link 
+                 to="/wishlist" 
+                 className="p-1 text-gray-700 hover:text-blue-600 transition-colors relative"
+               >
+                 <Heart className="h-5 w-5" />
+               </Link>
             )}
 
             {/* Cart */}
-            <Link 
-              to="/cart" 
-              className="p-2 text-gray-700 hover:text-blue-600 transition-colors relative"
-            >
-              <ShoppingCart className="h-6 w-6" />
+                         <Link 
+               to="/cart" 
+               className="p-1 text-gray-700 hover:text-blue-600 transition-colors relative"
+             >
+               <ShoppingCart className="h-5 w-5" />
               {cartItemCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                   {cartItemCount}
@@ -137,16 +137,16 @@ const Header = () => {
             {/* User Menu */}
             {isAuthenticated ? (
               <div className="relative">
-                <button
-                  onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                  className="flex items-center space-x-2 p-2 text-gray-700 hover:text-blue-600 transition-colors"
-                >
-                  <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-medium">
-                      {user?.name?.charAt(0)?.toUpperCase() || 'U'}
-                    </span>
-                  </div>
-                </button>
+                                 <button
+                   onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                   className="flex items-center space-x-2 p-1 text-gray-700 hover:text-blue-600 transition-colors"
+                 >
+                   <div className="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center">
+                     <span className="text-white text-xs font-medium">
+                       {user?.name?.charAt(0)?.toUpperCase() || 'U'}
+                     </span>
+                   </div>
+                 </button>
 
                 {isUserMenuOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">

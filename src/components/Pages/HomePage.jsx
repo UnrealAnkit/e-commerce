@@ -279,11 +279,11 @@ const HomePage = () => {
       </section>
 
              {/* Categories Section */}
-       <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+       <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                     <div className="text-center mb-16">
-             <h2 className="text-4xl md:text-5xl font-bold text-gradient-primary animate-zoom-in mb-4">Shop by Category</h2>
-             <p className="text-xl text-gray-600 animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '0.2s'}}>Explore our curated collections for every style and occasion</p>
+                     <div className="text-center mb-12">
+             <h2 className="text-3xl md:text-4xl font-bold text-gradient-primary animate-zoom-in mb-4">Shop by Category</h2>
+             <p className="text-lg text-gray-600 animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '0.2s'}}>Explore our curated collections for every style and occasion</p>
            </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {categories.map((category, index) => (
@@ -296,7 +296,7 @@ const HomePage = () => {
                                  <img
                    src={category.image}
                    alt={category.name}
-                   className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
+                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
                  />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col items-center justify-center">
                    <h3 className="text-white text-3xl font-bold group-hover:scale-110 transition-transform duration-300 mb-3 drop-shadow-lg">{category.name}</h3>
@@ -307,7 +307,7 @@ const HomePage = () => {
           </div>
           
                      {/* Category Stats */}
-           <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
              <div className="card-modern text-center animate-bounce-in hover-lift" style={{animationDelay: '0.1s'}}>
                <div className="text-4xl font-bold text-gradient-primary mb-3 animate-heartbeat">500+</div>
                <div className="text-gray-600 text-lg">Products in Men's Collection</div>
@@ -325,12 +325,12 @@ const HomePage = () => {
       </section>
 
              {/* Featured Products */}
-       <section className="py-24 bg-gradient-to-br from-white via-gray-50 to-white">
+       <section className="py-16 bg-gradient-to-br from-white via-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                     <div className="flex justify-between items-center mb-16">
+                     <div className="flex justify-between items-center mb-12">
              <div>
-               <h2 className="text-4xl md:text-5xl font-bold text-gradient-primary animate-zoom-in mb-4">Featured Products</h2>
-               <p className="text-xl text-gray-600 animate-fade-in-up" style={{animationDelay: '0.2s'}}>Handpicked styles for every occasion</p>
+               <h2 className="text-3xl md:text-4xl font-bold text-gradient-primary animate-zoom-in mb-4">Featured Products</h2>
+               <p className="text-lg text-gray-600 animate-fade-in-up" style={{animationDelay: '0.2s'}}>Handpicked styles for every occasion</p>
              </div>
              <Link
                to="/products"
@@ -354,21 +354,21 @@ const HomePage = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {featuredProducts.map((product, index) => (
-                <div key={product._id} className="product-card animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
-                  <div className="relative">
+                                 <div key={product._id} className="product-card animate-fade-in-up overflow-hidden" style={{animationDelay: `${index * 0.1}s`}}>
+                   <div className="relative">
                                          <img
                        src={product.image}
                        alt={product.name}
-                       className="w-full h-72 object-cover rounded-t-2xl"
+                       className="w-full h-64 object-cover rounded-t-2xl"
                      />
-                                         <button className="btn-floating absolute top-4 right-4 animate-bounce-in" style={{animationDelay: '0.5s'}}>
-                       <Heart className="h-6 w-6 text-white animate-heartbeat" />
+                                         <button className="btn-floating absolute top-3 right-3 animate-bounce-in" style={{animationDelay: '0.5s'}}>
+                       <Heart className="h-5 w-5 text-white animate-heartbeat" />
                      </button>
-                    {product.originalPrice > product.price && (
-                      <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
-                        {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
-                      </div>
-                    )}
+                                         {product.originalPrice > product.price && (
+                       <div className="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                         {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
+                       </div>
+                     )}
                   </div>
                   <div className="p-4">
                     <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
@@ -410,9 +410,9 @@ const HomePage = () => {
       </section>
 
              {/* Features Section */}
-       <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+       <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                     <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gradient-primary animate-zoom-in">Why Choose FashionHub</h2>
+                     <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient-primary animate-zoom-in">Why Choose FashionHub</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
                              <div key={index} className="card-modern text-center group animate-fade-in-up hover-lift" style={{animationDelay: `${index * 0.1}s`}}>
@@ -428,7 +428,7 @@ const HomePage = () => {
       </section>
 
              {/* Stats Section */}
-       <section className="py-24 gradient-primary text-white animate-gradient-shift">
+       <section className="py-16 gradient-primary text-white animate-gradient-shift">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                          {stats.map((stat, index) => (
@@ -460,19 +460,19 @@ const HomePage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {trendingProducts.map((product, index) => (
-              <div key={product._id} className="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up group" style={{animationDelay: `${index * 0.1}s`}}>
-                <div className="relative">
+                             <div key={product._id} className="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up group overflow-hidden" style={{animationDelay: `${index * 0.1}s`}}>
+                 <div className="relative">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-64 object-cover rounded-t-lg group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute top-2 left-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">
-                    {product.badge}
-                  </div>
-                  <button className="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
-                    <Heart className="h-5 w-5 text-gray-600" />
-                  </button>
+                                     <div className="absolute top-3 left-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">
+                     {product.badge}
+                   </div>
+                   <button className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                     <Heart className="h-5 w-5 text-gray-600" />
+                   </button>
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold text-lg mb-2 group-hover:text-purple-600 transition-colors">{product.name}</h3>
@@ -509,11 +509,11 @@ const HomePage = () => {
       </section>
 
              {/* Testimonials Section */}
-       <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+       <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                     <div className="text-center mb-16">
-             <h2 className="text-4xl md:text-5xl font-bold text-gradient-primary animate-zoom-in mb-4">What Our Customers Say</h2>
-             <p className="text-xl text-gray-600 animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '0.2s'}}>Real reviews from real customers</p>
+                     <div className="text-center mb-12">
+             <h2 className="text-3xl md:text-4xl font-bold text-gradient-primary animate-zoom-in mb-4">What Our Customers Say</h2>
+             <p className="text-lg text-gray-600 animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '0.2s'}}>Real reviews from real customers</p>
            </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -566,10 +566,10 @@ const HomePage = () => {
       </section>
 
              {/* Newsletter Section */}
-       <section className="py-24 gradient-secondary text-white animate-gradient-shift">
+       <section className="py-16 gradient-secondary text-white animate-gradient-shift">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                     <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-zoom-in drop-shadow-lg">Stay in the Loop</h2>
-           <p className="text-xl mb-10 text-white/90 animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '0.2s'}}>Get exclusive offers, fashion tips, and new arrivals delivered to your inbox</p>
+                     <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-zoom-in drop-shadow-lg">Stay in the Loop</h2>
+           <p className="text-lg mb-8 text-white/90 animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '0.2s'}}>Get exclusive offers, fashion tips, and new arrivals delivered to your inbox</p>
           
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                          <input
@@ -588,10 +588,10 @@ const HomePage = () => {
       </section>
 
              {/* Call to Action Section */}
-       <section className="py-24 gradient-dark text-white">
+       <section className="py-16 gradient-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                     <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-zoom-in drop-shadow-lg">Ready to Transform Your Style?</h2>
-           <p className="text-xl mb-10 text-white/80 animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '0.2s'}}>Join thousands of fashion enthusiasts who trust FashionHub</p>
+                     <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-zoom-in drop-shadow-lg">Ready to Transform Your Style?</h2>
+           <p className="text-lg mb-8 text-white/80 animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '0.2s'}}>Join thousands of fashion enthusiasts who trust FashionHub</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
                          <Link
