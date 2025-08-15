@@ -10,7 +10,8 @@
     "server": "nodemon server/server.js",
     "start": "node server/server.js",
     "seed": "node server/seeders/simpleSeed.js",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "render-build": "npm install"
   },
   "dependencies": {
     "express": "^4.18.2",
