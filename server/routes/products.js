@@ -25,8 +25,13 @@ router.get('/', async (req, res) => {
       featured
     } = req.query;
 
-    // Build query
-    const query = { isActive: true };
+    // Build query - for admin, show all products; for public, only active
+    const query = {};
+    
+    // Only filter by isActive if not explicitly requesting all products (for admin)
+    if (req.query.includeInactive !== 'true') {
+      query.isActive = true;
+    }
     
     if (category) query.category = category;
     if (gender) query.gender = gender;

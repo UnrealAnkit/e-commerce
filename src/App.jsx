@@ -25,6 +25,8 @@ import AdminLayout from './components/Admin/AdminLayout';
 import AdminDashboard from './components/Admin/AdminDashboard';
 import AdminLogin from './components/Admin/AdminLogin';
 import UsersManagement from './components/Admin/UsersManagement';
+import AdminCategoriesManagement from './components/Admin/AdminCategoriesManagement';
+import AdminProductsManagement from './components/Admin/AdminProductsManagement';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -158,6 +160,8 @@ const AppContent = () => {
             >
               <Route index element={<AdminDashboard />} />
               <Route path="users" element={<UsersManagement />} />
+              <Route path="categories" element={<AdminCategoriesManagement />} />
+              <Route path="products" element={<AdminProductsManagement />} />
               {/* Add more admin routes here */}
             </Route>
             

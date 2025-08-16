@@ -20,6 +20,7 @@ api.interceptors.request.use(
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    console.log('API Request:', config.method?.toUpperCase(), config.url, 'Data:', config.data);
     return config;
   },
   (error) => {
@@ -29,8 +30,12 @@ api.interceptors.request.use(
 
 // Response interceptor to handle errors
 api.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    console.log('API Response:', response.status, response.config.url, 'Data:', response.data);
+    return response;
+  },
   (error) => {
+    console.error('API Error:', error.response?.status, error.config?.url, 'Error:', error.response?.data);
     if (error.response?.status === 401) {
       localStorage.removeItem('token');
       window.location.href = '/login';
@@ -93,11 +98,26 @@ export const productsAPI = {
 
 // Categories API
 export const categoriesAPI = {
-  getAll: (params) => api.get('/categories', { params }),
-  getById: (id) => api.get(`/categories/${id}`),
-  create: (categoryData) => api.post('/categories', categoryData),
-  update: (id, categoryData) => api.put(`/categories/${id}`, categoryData),
-  delete: (id) => api.delete(`/categories/${id}`),
+  getAll: async (params) => {
+    const response = await api.get('/categories', { params });
+    return response.data;
+  },
+  getById: async (id) => {
+    const response = await api.get(`/categories/${id}`);
+    return response.data;
+  },
+  create: async (categoryData) => {
+    const response = await api.post('/categories', categoryData);
+    return response.data;
+  },
+  update: async (id, categoryData) => {
+    const response = await api.put(`/categories/${id}`, categoryData);
+    return response.data;
+  },
+  delete: async (id) => {
+    const response = await api.delete(`/categories/${id}`);
+    return response.data;
+  },
 };
 
 // Orders API

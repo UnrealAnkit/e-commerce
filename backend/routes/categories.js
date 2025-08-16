@@ -8,16 +8,19 @@ const router = express.Router();
 // Get all categories (public)
 router.get('/', async (req, res) => {
   try {
-    const { gender, isActive = true } = req.query;
+    const { gender, isActive } = req.query;
     
     const query = {};
     if (gender) query.gender = gender;
+    // Only filter by isActive if explicitly provided
     if (isActive !== undefined) query.isActive = isActive === 'true';
 
+    console.log('Categories query:', query); // Debug log
     const categories = await Category.find(query)
       .populate('parentCategory', 'name')
       .sort({ sortOrder: 1, name: 1 });
 
+    console.log('Found categories:', categories.length); // Debug log
     res.json({
       success: true,
       categories

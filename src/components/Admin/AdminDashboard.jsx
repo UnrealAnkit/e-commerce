@@ -129,16 +129,29 @@ const AdminDashboard = () => {
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <Link
-          to="/admin/products/new"
+          to="/admin/products"
           className="bg-white p-6 rounded-lg shadow hover:shadow-md transition-shadow"
         >
           <div className="flex items-center">
             <Plus className="h-8 w-8 text-blue-600" />
             <div className="ml-4">
-              <h3 className="text-lg font-semibold text-gray-900">Add Product</h3>
-              <p className="text-gray-600">Create a new product listing</p>
+              <h3 className="text-lg font-semibold text-gray-900">Manage Products</h3>
+              <p className="text-gray-600">Add and edit products</p>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/admin/categories"
+          className="bg-white p-6 rounded-lg shadow hover:shadow-md transition-shadow"
+        >
+          <div className="flex items-center">
+            <ShoppingBag className="h-8 w-8 text-orange-600" />
+            <div className="ml-4">
+              <h3 className="text-lg font-semibold text-gray-900">Manage Categories</h3>
+              <p className="text-gray-600">Organize product categories</p>
             </div>
           </div>
         </Link>
