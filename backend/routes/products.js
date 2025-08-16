@@ -142,9 +142,21 @@ router.post('/', authenticate, authorize('admin'), [
     });
   } catch (error) {
     console.error('Create product error:', error);
+    console.error('Request body:', req.body);
+    
+    // Handle validation errors specifically
+    if (error.name === 'ValidationError') {
+      return res.status(400).json({
+        success: false,
+        message: 'Validation failed',
+        errors: Object.values(error.errors).map(err => err.message)
+      });
+    }
+    
     res.status(500).json({
       success: false,
-      message: 'Server error'
+      message: 'Server error',
+      error: error.message
     });
   }
 });
