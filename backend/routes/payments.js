@@ -5,8 +5,8 @@ import Stripe from 'stripe';
 
 const router = express.Router();
 
-// Initialize Stripe with secret key
-const stripe = new Stripe('sk_test_51Rx2pnJQK6zibjikWIzBu4KTm6XhayZngvizrC8Qiv24ShjC9pS3axHyBvh50j2jpJzCLNTKKf2Tg8rpAsGjgeNW00eDost2uB', {
+// Initialize Stripe with secret key from environment
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2023-10-16',
 });
 
