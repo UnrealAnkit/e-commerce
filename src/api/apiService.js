@@ -172,9 +172,18 @@ export const usersAPI = {
 
 // Payments API
 export const paymentsAPI = {
-  createPaymentIntent: (paymentData) => api.post('/payments/create-payment-intent', paymentData),
-  confirmPayment: (paymentData) => api.post('/payments/confirm-payment', paymentData),
-  getPaymentStatus: (paymentIntentId) => api.get(`/payments/status/${paymentIntentId}`),
+  createPaymentIntent: async (paymentData) => {
+    const response = await api.post('/payments/create-payment-intent', paymentData);
+    return response.data;
+  },
+  confirmPayment: async (paymentData) => {
+    const response = await api.post('/payments/confirm-payment', paymentData);
+    return response.data;
+  },
+  getPaymentStatus: async (paymentIntentId) => {
+    const response = await api.get(`/payments/status/${paymentIntentId}`);
+    return response.data;
+  },
 };
 
 // Upload API

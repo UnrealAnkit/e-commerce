@@ -15,12 +15,14 @@ import {
   X
 } from 'lucide-react';
 import { removeFromCart, updateQuantity, clearCart } from '../../store/slices/cartSlice';
+import Toast from '../UI/Toast';
 
 const CartPage = () => {
   const dispatch = useDispatch();
   const { items, total, itemCount } = useSelector((state) => state.cart);
   const [couponCode, setCouponCode] = useState('');
   const [appliedCoupon, setAppliedCoupon] = useState(null);
+  const [toast, setToast] = useState({ show: false, message: '', type: 'info' });
 
   const handleUpdateQuantity = (productId, size, color, newQuantity) => {
     if (newQuantity < 1) return;
@@ -51,6 +53,11 @@ const CartPage = () => {
   const removeCoupon = () => {
     setAppliedCoupon(null);
     setCouponCode('');
+  };
+
+  const showToast = (message, type = 'info') => {
+    setToast({ show: true, message, type });
+    setTimeout(() => setToast({ show: false, message: '', type: 'info' }), 3000);
   };
 
   const subtotal = total;
@@ -366,10 +373,16 @@ const CartPage = () => {
 
               {/* Action Buttons */}
               <div className="space-y-3">
-                <button className="btn-primary w-full py-4 text-lg font-semibold flex items-center justify-center gap-2">
-                  Proceed to Checkout
-                  <ArrowRight className="h-5 w-5" />
-                </button>
+                <a
+                  href="https://buy.stripe.com/test_9B614o1lk0x14GL5CbaVa00"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary w-full py-4 text-lg font-semibold flex items-center justify-center gap-2 text-center block text-white no-underline hover:no-underline"
+                >
+                  <CreditCard className="h-5 w-5" />
+                  Pay Now (Test)
+                </a>
+                
                 <Link 
                   to="/" 
                   className="btn-secondary w-full py-3 text-center block"
@@ -392,6 +405,22 @@ const CartPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Payment Success Notice */}
+      {toast.show && toast.type === 'success' && (
+        <div className="fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-2xl shadow-lg z-50">
+          <p className="font-medium">🎉 Payment will be processed on Stripe's secure page!</p>
+        </div>
+      )}
+
+      {/* Toast Notifications */}
+      {toast.show && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast({ show: false, message: '', type: 'info' })}
+        />
+      )}
     </div>
   );
 };

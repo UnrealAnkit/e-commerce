@@ -43,12 +43,12 @@ const Header = () => {
   };
 
   return (
-     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-soft">
+     <header className="sticky top-0 z-50 bg-warm-50/85 backdrop-blur-xl border-b border-warm-200/40 shadow-trust">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
          <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
                      <Link to="/" className="flex items-center space-x-3 group flex-shrink-0">
-             <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl flex items-center justify-center shadow-md transform group-hover:scale-105 group-hover:rotate-3 transition-all duration-300">
+             <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center shadow-warm transform group-hover:scale-105 group-hover:rotate-3 transition-all duration-300">
                <span className="text-white font-bold text-lg lg:text-xl">F</span>
              </div>
              <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent group-hover:scale-105 transition-all duration-300 hidden sm:block">FashionHub</span>

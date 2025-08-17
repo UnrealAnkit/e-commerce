@@ -247,75 +247,75 @@ const HomePage = () => {
   return (
     <div className="min-h-screen">
              {/* Hero Section */}
-       <section className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden min-h-screen flex items-center">
-                 {/* Premium background with mesh gradient */}
+       <section className="relative bg-gradient-to-br from-warm-50 via-primary-50 to-soft-100 text-trust-800 overflow-hidden min-h-screen flex items-center">
+                 {/* Warm background with soft mesh gradient */}
          <div className="absolute inset-0">
-           {/* Animated mesh background */}
-           <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/30 to-pink-900/20"></div>
-           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.3),transparent_50%)]"></div>
-           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.2),transparent_50%)]"></div>
-           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(216,180,254,0.2),transparent_50%)]"></div>
+           {/* Animated warm mesh background */}
+           <div className="absolute inset-0 bg-gradient-to-br from-warm-100/30 via-primary-100/20 to-accent-100/15"></div>
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(237,138,32,0.08),transparent_50%)]"></div>
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(128,180,148,0.1),transparent_50%)]"></div>
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(251,223,170,0.12),transparent_50%)]"></div>
            
            {/* Floating premium elements */}
-           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{animationDelay: '0s'}}></div>
-           <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white/30 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-           <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-white/35 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
-           <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white/25 rounded-full animate-pulse" style={{animationDelay: '3s'}}></div>
+           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary-400/40 rounded-full animate-pulse" style={{animationDelay: '0s'}}></div>
+           <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-accent-400/30 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+           <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-warm-400/35 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
+           <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-secondary-400/25 rounded-full animate-pulse" style={{animationDelay: '3s'}}></div>
            
-           {/* Premium geometric shapes */}
-           <div className="absolute top-20 left-20 w-20 h-20 border border-white/10 rounded-full animate-float transform rotate-12"></div>
-           <div className="absolute bottom-32 right-32 w-16 h-16 border border-white/10 rounded-lg animate-float transform -rotate-12" style={{animationDelay: '2s'}}></div>
+           {/* Warm geometric shapes */}
+           <div className="absolute top-20 left-20 w-20 h-20 border border-primary-200/15 rounded-full animate-float transform rotate-12"></div>
+           <div className="absolute bottom-32 right-32 w-16 h-16 border border-accent-200/12 rounded-lg animate-float transform -rotate-12" style={{animationDelay: '2s'}}></div>
          </div>
         
                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
            <div className="text-center">
              {/* Premium badge */}
-             <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-sm font-medium text-white/90 mb-8 animate-fade-in-up">
-               <div className="w-2 h-2 bg-emerald-400 rounded-full mr-3 animate-pulse"></div>
-               Premium Fashion • Curated Collections
+             <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-md border border-primary-300/40 rounded-full text-sm font-medium text-trust-800 mb-8 animate-fade-in-up shadow-warm">
+               <div className="w-2 h-2 bg-accent-600 rounded-full mr-3 animate-pulse"></div>
+               Trusted Fashion • Warm Collections
              </div>
              
-             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 lg:mb-8 animate-fade-in-up text-white leading-[0.9] tracking-tight">
-               Elevate Your
-               <span className="block bg-gradient-to-r from-violet-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent font-black">
-                 Fashion Game
+             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 lg:mb-8 animate-fade-in-up text-trust-900 leading-[0.9] tracking-tight">
+               Discover Your
+               <span className="block bg-gradient-to-r from-primary-600 via-secondary-600 to-accent-600 bg-clip-text text-transparent font-black">
+                 Perfect Style
                </span>
              </h1>
              
-               <p className="text-xl sm:text-2xl lg:text-3xl mb-6 lg:mb-8 text-white/80 animate-fade-in-up max-w-4xl mx-auto leading-relaxed font-light" style={{animationDelay: '0.2s'}}>
-                 Discover luxury fashion and premium accessories crafted for the modern trendsetter. 
-                 <span className="block mt-2 text-lg lg:text-xl text-white/60">Where style meets sophistication</span>
+               <p className="text-xl sm:text-2xl lg:text-3xl mb-6 lg:mb-8 text-trust-700 animate-fade-in-up max-w-4xl mx-auto leading-relaxed font-medium" style={{animationDelay: '0.2s'}}>
+                 Discover comfortable fashion and quality accessories crafted for everyday elegance. 
+                 <span className="block mt-2 text-lg lg:text-xl text-trust-600 font-normal">Where comfort meets style</span>
                </p>
                
                {/* Premium features */}
                <div className="flex flex-wrap justify-center items-center gap-6 lg:gap-10 mb-12 lg:mb-16 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
-                 <div className="flex items-center bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 hover:bg-white/20 transition-all duration-300">
-                   <div className="w-10 h-10 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-xl flex items-center justify-center mr-4">
+                 <div className="flex items-center bg-white/90 backdrop-blur-xl border border-primary-200/30 rounded-2xl px-6 py-3 hover:bg-white/95 transition-all duration-300 shadow-warm">
+                   <div className="w-10 h-10 bg-gradient-to-r from-accent-500 to-accent-600 rounded-xl flex items-center justify-center mr-4">
                      <span className="text-white text-sm font-bold">✨</span>
                    </div>
                    <div className="text-left">
-                     <div className="text-white font-semibold">Free Premium Shipping</div>
-                     <div className="text-white/60 text-sm">Orders over $75</div>
+                     <div className="text-trust-800 font-semibold">Free Premium Shipping</div>
+                     <div className="text-trust-600 text-sm">Orders over $75</div>
                    </div>
                  </div>
                  
-                 <div className="flex items-center bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 hover:bg-white/20 transition-all duration-300">
-                   <div className="w-10 h-10 bg-gradient-to-r from-violet-400 to-purple-400 rounded-xl flex items-center justify-center mr-4">
+                 <div className="flex items-center bg-white/90 backdrop-blur-xl border border-primary-200/30 rounded-2xl px-6 py-3 hover:bg-white/95 transition-all duration-300 shadow-warm">
+                   <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mr-4">
                      <span className="text-white text-sm font-bold">🛡️</span>
                    </div>
                    <div className="text-left">
-                     <div className="text-white font-semibold">60-Day Returns</div>
-                     <div className="text-white/60 text-sm">No questions asked</div>
+                     <div className="text-trust-800 font-semibold">60-Day Returns</div>
+                     <div className="text-trust-600 text-sm">No questions asked</div>
                    </div>
                  </div>
                  
-                 <div className="flex items-center bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 hover:bg-white/20 transition-all duration-300">
-                   <div className="w-10 h-10 bg-gradient-to-r from-pink-400 to-rose-400 rounded-xl flex items-center justify-center mr-4">
+                 <div className="flex items-center bg-white/90 backdrop-blur-xl border border-primary-200/30 rounded-2xl px-6 py-3 hover:bg-white/95 transition-all duration-300 shadow-warm">
+                   <div className="w-10 h-10 bg-gradient-to-r from-secondary-500 to-secondary-600 rounded-xl flex items-center justify-center mr-4">
                      <span className="text-white text-sm font-bold">💎</span>
                    </div>
                    <div className="text-left">
-                     <div className="text-white font-semibold">Luxury Service</div>
-                     <div className="text-white/60 text-sm">24/7 Style Concierge</div>
+                     <div className="text-trust-800 font-semibold">Luxury Service</div>
+                     <div className="text-trust-600 text-sm">24/7 Style Concierge</div>
                    </div>
                  </div>
                </div>
@@ -323,9 +323,9 @@ const HomePage = () => {
                              <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '0.4s'}}>
                  <Link
                    to="/products"
-                   className="group relative bg-gradient-to-r from-white via-gray-50 to-white text-slate-900 px-10 lg:px-14 py-4 lg:py-5 text-lg lg:text-xl font-bold rounded-2xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 inline-flex items-center justify-center overflow-hidden"
+                   className="group relative bg-gradient-to-r from-primary-500 via-primary-600 to-secondary-500 text-white px-10 lg:px-14 py-4 lg:py-5 text-lg lg:text-xl font-bold rounded-2xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 inline-flex items-center justify-center overflow-hidden"
                  >
-                   <div className="absolute inset-0 bg-gradient-to-r from-violet-600/10 to-pink-600/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                   <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-secondary-600/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                    <span className="relative z-10">Explore Collection</span>
                    <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform duration-300 relative z-10" />
                  </Link>
@@ -333,29 +333,29 @@ const HomePage = () => {
                  {!isAuthenticated && (
                    <Link
                      to="/register"
-                     className="bg-transparent border-2 border-white/30 text-white px-10 lg:px-14 py-4 lg:py-5 text-lg lg:text-xl font-bold rounded-2xl hover:bg-white hover:text-slate-900 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
+                     className="bg-white/90 border-2 border-primary-200/50 text-trust-800 px-10 lg:px-14 py-4 lg:py-5 text-lg lg:text-xl font-bold rounded-2xl hover:bg-white hover:shadow-warm backdrop-blur-sm transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
                    >
-                     Join the Elite
+                     Join the Community
                    </Link>
                  )}
                </div>
               
                              {/* Trust Indicators */}
                <div className="mt-12 lg:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 animate-fade-in-up max-w-4xl mx-auto" style={{animationDelay: '0.6s'}}>
-                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                   <CheckCircle className="h-8 w-8 lg:h-10 lg:w-10 mx-auto mb-3 text-green-300" />
-                   <div className="text-2xl lg:text-3xl font-bold mb-1">50K+</div>
-                   <div className="text-sm lg:text-base text-white/80">Happy Customers</div>
+                 <div className="bg-white/90 backdrop-blur-md rounded-2xl p-4 lg:p-6 text-center hover:bg-white/95 transition-all duration-300 transform hover:scale-105 shadow-warm border border-primary-100/30">
+                   <CheckCircle className="h-8 w-8 lg:h-10 lg:w-10 mx-auto mb-3 text-accent-600" />
+                   <div className="text-2xl lg:text-3xl font-bold mb-1 text-trust-800">50K+</div>
+                   <div className="text-sm lg:text-base text-trust-600">Happy Customers</div>
                  </div>
-                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                   <Award className="h-8 w-8 lg:h-10 lg:w-10 mx-auto mb-3 text-yellow-300" />
-                   <div className="text-2xl lg:text-3xl font-bold mb-1">Premium</div>
-                   <div className="text-sm lg:text-base text-white/80">Quality Products</div>
+                 <div className="bg-white/90 backdrop-blur-md rounded-2xl p-4 lg:p-6 text-center hover:bg-white/95 transition-all duration-300 transform hover:scale-105 shadow-warm border border-primary-100/30">
+                   <Award className="h-8 w-8 lg:h-10 lg:w-10 mx-auto mb-3 text-primary-600" />
+                   <div className="text-2xl lg:text-3xl font-bold mb-1 text-trust-800">Premium</div>
+                   <div className="text-sm lg:text-base text-trust-600">Quality Products</div>
                  </div>
-                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 lg:p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                   <Truck className="h-8 w-8 lg:h-10 lg:w-10 mx-auto mb-3 text-blue-300" />
-                   <div className="text-2xl lg:text-3xl font-bold mb-1">2-3 Days</div>
-                   <div className="text-sm lg:text-base text-white/80">Fast Delivery</div>
+                 <div className="bg-white/90 backdrop-blur-md rounded-2xl p-4 lg:p-6 text-center hover:bg-white/95 transition-all duration-300 transform hover:scale-105 shadow-warm border border-primary-100/30">
+                   <Truck className="h-8 w-8 lg:h-10 lg:w-10 mx-auto mb-3 text-secondary-600" />
+                   <div className="text-2xl lg:text-3xl font-bold mb-1 text-trust-800">2-3 Days</div>
+                   <div className="text-sm lg:text-base text-trust-600">Fast Delivery</div>
                  </div>
                </div>
             </div>
@@ -487,7 +487,7 @@ const HomePage = () => {
              </p>
              <Link
                to="/products"
-               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-slate-900 to-blue-900 text-white rounded-2xl hover:from-slate-800 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 font-semibold shadow-xl hover:shadow-2xl"
+               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-2xl hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 transform hover:scale-105 font-semibold shadow-warm hover:shadow-xl"
              >
                View Full Collection
                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -596,13 +596,18 @@ const HomePage = () => {
       </section>
 
              {/* Stats Section */}
-       <section className="py-16 gradient-primary text-white animate-gradient-shift">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                         {stats.map((stat, index) => (
-               <div key={index} className="glass-card text-center animate-fade-in-up hover-lift" style={{animationDelay: `${index * 0.1}s`}}>
-                 <div className="text-4xl md:text-5xl font-bold mb-3 animate-heartbeat drop-shadow-lg">{stat.number}</div>
-                 <div className="text-white text-lg font-semibold animate-pulse-glow">{stat.label}</div>
+       <section className="py-20 bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-600 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-600/20 via-transparent to-secondary-600/15"></div>
+        <div className="absolute top-10 right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+            {stats.map((stat, index) => (
+               <div key={index} className="bg-white/15 backdrop-blur-xl border border-white/20 rounded-3xl p-6 lg:p-8 text-center hover:bg-white/25 transition-all duration-300 transform hover:scale-105 animate-fade-in-up shadow-xl" style={{animationDelay: `${index * 0.1}s`}}>
+                 <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-3 text-white drop-shadow-lg">{stat.number}</div>
+                 <div className="text-white/90 text-sm lg:text-base font-medium uppercase tracking-wide">{stat.label}</div>
                </div>
              ))}
           </div>
@@ -619,10 +624,10 @@ const HomePage = () => {
              </div>
              <Link
                to="/products"
-               className="text-purple-600 hover:text-purple-700 font-semibold flex items-center group transition-all duration-300 hover:scale-105 animate-pulse-glow"
+               className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-3 rounded-2xl font-semibold flex items-center group transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-warm"
              >
                View All
-               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform animate-wave" />
+               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
              </Link>
            </div>
 
@@ -737,47 +742,67 @@ const HomePage = () => {
       </section>
 
              {/* Newsletter Section */}
-       <section className="py-16 gradient-secondary text-white animate-gradient-shift">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                     <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-zoom-in drop-shadow-lg">Stay in the Loop</h2>
-           <p className="text-lg mb-8 text-white/90 animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '0.2s'}}>Get exclusive offers, fashion tips, and new arrivals delivered to your inbox</p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                         <input
-               type="email"
-               placeholder="Enter your email address"
-               className="input-modern flex-1 px-6 py-4 text-lg"
-             />
-                         <button className="btn-primary px-8 py-4 text-lg font-bold hover-lift flex items-center justify-center animate-pulse-glow">
-               <Mail className="h-6 w-6 mr-3 animate-wave" />
-               Subscribe
-             </button>
+       <section className="py-20 bg-gradient-to-r from-warm-100 via-primary-50 to-warm-100 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-100/30 via-transparent to-accent-100/20"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-primary-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-accent-200/15 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 lg:p-12 shadow-warm border border-primary-100/50">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-trust-800 animate-zoom-in">Stay in the Loop</h2>
+            <p className="text-lg mb-8 text-trust-600 animate-fade-in-up max-w-2xl mx-auto leading-relaxed" style={{animationDelay: '0.2s'}}>
+              Get exclusive offers, fashion tips, and new arrivals delivered to your inbox
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-6">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                className="flex-1 px-6 py-4 text-lg rounded-2xl border border-primary-200/50 focus:outline-none focus:ring-2 focus:ring-primary-400/50 focus:border-primary-400 bg-white/90 text-trust-700 placeholder-trust-400"
+              />
+              <button className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-8 py-4 text-lg font-bold rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
+                <Mail className="h-5 w-5 mr-3" />
+                Subscribe
+              </button>
+            </div>
+            
+            <p className="text-sm text-trust-500">No spam, unsubscribe at any time</p>
           </div>
-          
-          <p className="text-sm text-purple-200 mt-4">No spam, unsubscribe at any time</p>
         </div>
       </section>
 
              {/* Call to Action Section */}
-       <section className="py-16 gradient-dark text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                     <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-zoom-in drop-shadow-lg">Ready to Transform Your Style?</h2>
-           <p className="text-lg mb-8 text-white/80 animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '0.2s'}}>Join thousands of fashion enthusiasts who trust FashionHub</p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                         <Link
-               to="/products"
-               className="btn-primary px-10 py-4 text-lg font-bold hover-lift inline-flex items-center justify-center group animate-pulse-glow shadow-strong"
-             >
-               Start Shopping
-               <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform animate-wave" />
-             </Link>
-                         <Link
-               to="/register"
-               className="btn-secondary px-10 py-4 text-lg font-bold hover-lift inline-flex items-center justify-center"
-             >
-               Create Account
-             </Link>
+       <section className="py-20 bg-gradient-to-br from-soft-100 via-white to-warm-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-100/20 via-transparent to-primary-100/15"></div>
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary-200/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-accent-200/15 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="bg-white/60 backdrop-blur-xl rounded-3xl p-8 lg:p-16 shadow-warm border border-primary-100/30">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-trust-800 animate-zoom-in leading-tight">
+              Ready to Transform Your Style?
+            </h2>
+            <p className="text-lg lg:text-xl mb-10 text-trust-600 animate-fade-in-up max-w-3xl mx-auto leading-relaxed" style={{animationDelay: '0.2s'}}>
+              Join thousands of fashion enthusiasts who trust FashionHub for their style journey
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-2xl mx-auto">
+              <Link
+                to="/products"
+                className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-10 py-4 text-lg font-bold rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center group shadow-warm"
+              >
+                Start Shopping
+                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                to="/register"
+                className="bg-white border-2 border-primary-300/50 text-trust-700 px-10 py-4 text-lg font-bold rounded-2xl hover:bg-primary-50 hover:border-primary-400 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center shadow-trust"
+              >
+                Create Account
+              </Link>
+            </div>
           </div>
         </div>
       </section>
