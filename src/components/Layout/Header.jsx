@@ -55,7 +55,7 @@ const Header = () => {
            </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8 ml-12">
                          <Link 
                to="/" 
                className="text-gray-700 hover:text-primary-600 font-medium transition-all duration-300 relative group py-2"

@@ -19,6 +19,13 @@ import OrdersPage from './components/Pages/OrdersPage';
 import OrderDetailPage from './components/Pages/OrderDetailPage';
 import WishlistPage from './components/Pages/WishlistPage';
 import NotFoundPage from './components/Pages/NotFoundPage';
+import FAQPage from './components/Pages/FAQPage';
+import CancellationPage from './components/Pages/CancellationPage';
+import ReturnPage from './components/Pages/ReturnPage';
+import SizeGuidePage from './components/Pages/SizeGuidePage';
+import PrivacyPage from './components/Pages/PrivacyPage';
+import TermsPage from './components/Pages/TermsPage';
+import AboutPage from './components/Pages/AboutPage';
 
 // Import Admin components
 import AdminLayout from './components/Admin/AdminLayout';
@@ -170,6 +177,15 @@ const AppContent = () => {
               <Route path="products" element={<AdminProductsManagement />} />
               {/* Add more admin routes here */}
             </Route>
+            
+            {/* Information Pages */}
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/cancellation" element={<CancellationPage />} />
+            <Route path="/returns" element={<ReturnPage />} />
+            <Route path="/size-guide" element={<SizeGuidePage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
             
             {/* 404 Route */}
             <Route path="*" element={<NotFoundPage />} />

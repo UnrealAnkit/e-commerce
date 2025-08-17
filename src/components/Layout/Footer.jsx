@@ -22,18 +22,18 @@ const Footer = () => {
       { name: 'Sale', href: '/products' }
     ],
     support: [
-      { name: 'Contact Us', href: '/contact' },
-      { name: 'FAQs', href: '/faqs' },
-      { name: 'Shipping', href: '/shipping' },
-      { name: 'Returns', href: '/returns' },
+      { name: 'Help Center', href: '/faq' },
+      { name: 'FAQs', href: '/faq' },
+      { name: 'Returns & Refunds', href: '/returns' },
+      { name: 'Cancellation Policy', href: '/cancellation' },
       { name: 'Size Guide', href: '/size-guide' }
     ],
     company: [
       { name: 'About Us', href: '/about' },
-      { name: 'Careers', href: '/careers' },
       { name: 'Privacy Policy', href: '/privacy' },
       { name: 'Terms of Service', href: '/terms' },
-      { name: 'Blog', href: '/blog' }
+      { name: 'Contact Us', href: '/contact' },
+      { name: 'Careers', href: '/careers' }
     ]
   };
 
