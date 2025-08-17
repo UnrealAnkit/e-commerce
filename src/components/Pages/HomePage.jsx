@@ -159,27 +159,27 @@ const HomePage = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Sarah Johnson',
-      role: 'Fashion Blogger',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150',
+      name: 'Priya Sharma',
+      role: 'Fashion Blogger, Mumbai',
+      image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&h=150&fit=crop&crop=face',
       rating: 5,
-      text: 'FashionHub has completely transformed my wardrobe! The quality and style selection is unmatched. I love how easy it is to find exactly what I\'m looking for.'
+      text: 'FashionHub मेरा favorite shopping destination है! The fusion wear collection is absolutely stunning and delivery is super fast across India. Quality bilkul premium है!'
     },
     {
       id: 2,
-      name: 'Michael Chen',
-      role: 'Business Professional',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
+      name: 'Arjun Patel',
+      role: 'Software Engineer, Bangalore',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
       rating: 5,
-      text: 'As someone who values both style and convenience, FashionHub delivers on both fronts. The delivery is lightning fast and the customer service is exceptional.'
+      text: 'Being a techie, I love their user-friendly app and website. COD facility भी है और customer service ekdum responsive है. Perfect for busy professionals like me!'
     },
     {
       id: 3,
-      name: 'Emma Rodriguez',
-      role: 'Student',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
+      name: 'Sneha Gupta',
+      role: 'College Student, Delhi',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face',
       rating: 5,
-      text: 'Perfect for students on a budget! Great prices, trendy styles, and the return policy is so hassle-free. I recommend FashionHub to all my friends.'
+      text: 'College budget में भी trendy clothes mil jaate हैं! Their festive collection is amazing - from kurtas to Indo-western outfits. My friends always ask where I shop from!'
     }
   ];
 
