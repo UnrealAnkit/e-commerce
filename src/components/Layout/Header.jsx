@@ -43,93 +43,93 @@ const Header = () => {
   };
 
   return (
-     <header className="glass sticky top-0 z-50 backdrop-blur-md">
+     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-soft">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-         <div className="flex justify-between items-center h-16">
+         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
-                     <Link to="/" className="flex items-center space-x-2 group">
-             <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center shadow-strong transform group-hover:scale-110 transition-all duration-300 hover:rotate-3">
-               <span className="text-white font-bold text-lg">F</span>
+                     <Link to="/" className="flex items-center space-x-3 group flex-shrink-0">
+             <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl flex items-center justify-center shadow-md transform group-hover:scale-105 group-hover:rotate-3 transition-all duration-300">
+               <span className="text-white font-bold text-lg lg:text-xl">F</span>
              </div>
-             <span className="text-xl font-bold text-gradient-primary group-hover:scale-105 transition-all duration-300">FashionHub</span>
+             <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent group-hover:scale-105 transition-all duration-300 hidden sm:block">FashionHub</span>
            </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-8">
                          <Link 
                to="/" 
-               className="text-gray-700 hover:text-gradient-primary font-semibold transition-all duration-300 hover:scale-105 relative group text-base"
+               className="text-gray-700 hover:text-primary-600 font-medium transition-all duration-300 relative group py-2"
              >
               Home
-              <span className="absolute -bottom-1 left-0 w-0 h-1 gradient-primary group-hover:w-full transition-all duration-300 rounded-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-secondary-600 group-hover:w-full transition-all duration-300 rounded-full"></span>
             </Link>
             <Link 
               to="/products" 
-              className="text-gray-700 hover:text-purple-600 transition-all duration-300 hover:scale-105 relative group"
+              className="text-gray-700 hover:text-primary-600 font-medium transition-all duration-300 relative group py-2"
             >
               Products
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-blue-600 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-secondary-600 group-hover:w-full transition-all duration-300 rounded-full"></span>
             </Link>
             <Link 
               to="/products?gender=men" 
-              className="text-gray-700 hover:text-purple-600 transition-all duration-300 hover:scale-105 relative group"
+              className="text-gray-700 hover:text-primary-600 font-medium transition-all duration-300 relative group py-2"
             >
               Men
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-blue-600 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-secondary-600 group-hover:w-full transition-all duration-300 rounded-full"></span>
             </Link>
             <Link 
               to="/products?gender=women" 
-              className="text-gray-700 hover:text-purple-600 transition-all duration-300 hover:scale-105 relative group"
+              className="text-gray-700 hover:text-primary-600 font-medium transition-all duration-300 relative group py-2"
             >
               Women
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-blue-600 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-secondary-600 group-hover:w-full transition-all duration-300 rounded-full"></span>
             </Link>
             <Link 
               to="/products?gender=kids" 
-              className="text-gray-700 hover:text-purple-600 transition-all duration-300 hover:scale-105 relative group"
+              className="text-gray-700 hover:text-primary-600 font-medium transition-all duration-300 relative group py-2"
             >
               Kids
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-blue-600 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-secondary-600 group-hover:w-full transition-all duration-300 rounded-full"></span>
             </Link>
           </nav>
 
           {/* Search Bar */}
-          <div className="hidden md:flex flex-1 max-w-sm mx-4">
+          <div className="hidden lg:flex flex-1 max-w-lg mx-6">
             <form onSubmit={handleSearch} className="w-full">
               <div className="relative group">
                                  <input
                    type="text"
-                   placeholder="Search products..."
+                   placeholder="Search products, brands, categories..."
                    value={searchQuery}
                    onChange={(e) => setSearchQuery(e.target.value)}
-                   className="input-modern w-full pl-10 pr-4 py-2 text-sm"
+                   className="w-full pl-12 pr-4 py-3 text-sm bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 group-hover:bg-white focus:bg-white"
                  />
-                                 <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
+                                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 group-hover:text-primary-500 transition-colors duration-300" />
               </div>
             </form>
           </div>
 
           {/* Right Side Icons */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1 lg:space-x-3">
             {/* Wishlist */}
             {isAuthenticated && (
                              <Link 
                  to="/wishlist" 
-                 className="p-1 text-gray-700 hover:text-blue-600 transition-colors relative"
+                 className="p-2 lg:p-3 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-300 relative group"
                >
-                 <Heart className="h-5 w-5" />
+                 <Heart className="h-5 w-5 lg:h-6 lg:w-6 group-hover:scale-110 transition-transform duration-300" />
                </Link>
             )}
 
             {/* Cart */}
                          <Link 
                to="/cart" 
-               className="p-1 text-gray-700 hover:text-blue-600 transition-colors relative"
+               className="p-2 lg:p-3 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-300 relative group"
              >
-               <ShoppingCart className="h-5 w-5" />
+               <ShoppingCart className="h-5 w-5 lg:h-6 lg:w-6 group-hover:scale-110 transition-transform duration-300" />
               {cartItemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                  {cartItemCount}
+                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs rounded-full h-5 w-5 lg:h-6 lg:w-6 flex items-center justify-center font-medium shadow-md animate-pulse">
+                  {cartItemCount > 99 ? '99+' : cartItemCount}
                 </span>
               )}
             </Link>
@@ -139,58 +139,65 @@ const Header = () => {
               <div className="relative">
                                  <button
                    onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                   className="flex items-center space-x-2 p-1 text-gray-700 hover:text-blue-600 transition-colors"
+                   className="flex items-center space-x-2 p-2 hover:bg-gray-50 rounded-xl transition-all duration-300 group"
                  >
-                   <div className="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center">
-                     <span className="text-white text-xs font-medium">
+                   <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-full flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                     <span className="text-white text-sm lg:text-base font-medium">
                        {user?.name?.charAt(0)?.toUpperCase() || 'U'}
                      </span>
                    </div>
+                   <span className="hidden lg:block text-sm font-medium text-gray-700 group-hover:text-primary-600 transition-colors duration-300">
+                     {user?.name?.split(' ')[0] || 'User'}
+                   </span>
                  </button>
 
                 {isUserMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
-                    <div className="px-4 py-2 border-b border-gray-100">
-                      <p className="text-sm font-medium text-gray-900">{user?.name}</p>
-                      <p className="text-sm text-gray-500">{user?.email}</p>
+                  <div className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-strong border border-gray-100 py-2 z-50 animate-fade-in-down">
+                    <div className="px-4 py-3 border-b border-gray-100">
+                      <p className="text-sm font-semibold text-gray-900">{user?.name}</p>
+                      <p className="text-xs text-gray-500 truncate">{user?.email}</p>
                     </div>
-                    <Link
-                      to="/profile"
-                      className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      onClick={() => setIsUserMenuOpen(false)}
-                    >
-                      <User className="h-4 w-4 mr-2" />
-                      Profile
-                    </Link>
-                    <Link
-                      to="/orders"
-                      className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      onClick={() => setIsUserMenuOpen(false)}
-                    >
-                      <Settings className="h-4 w-4 mr-2" />
-                      Orders
-                    </Link>
-                    <button
-                      onClick={handleLogout}
-                      className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    >
-                      <LogOut className="h-4 w-4 mr-2" />
-                      Logout
-                    </button>
+                    <div className="py-2">
+                      <Link
+                        to="/profile"
+                        className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-all duration-300 group"
+                        onClick={() => setIsUserMenuOpen(false)}
+                      >
+                        <User className="h-4 w-4 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                        Profile Settings
+                      </Link>
+                      <Link
+                        to="/orders"
+                        className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-all duration-300 group"
+                        onClick={() => setIsUserMenuOpen(false)}
+                      >
+                        <Settings className="h-4 w-4 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                        My Orders
+                      </Link>
+                      <div className="border-t border-gray-100 mt-2 pt-2">
+                        <button
+                          onClick={handleLogout}
+                          className="flex items-center w-full px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-all duration-300 group"
+                        >
+                          <LogOut className="h-4 w-4 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                          Sign Out
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
             ) : (
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 lg:space-x-3">
                 <Link
                   to="/login"
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
+                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-50"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-xl hover:from-primary-700 hover:to-secondary-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg font-medium"
                 >
                   Sign Up
                 </Link>
@@ -200,7 +207,7 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
+              className="lg:hidden p-2 text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-300"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -209,58 +216,91 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
-            <nav className="flex flex-col space-y-4">
-              <Link 
-                to="/" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link 
-                to="/products" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Products
-              </Link>
-              <Link 
-                to="/products?gender=men" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Men
-              </Link>
-              <Link 
-                to="/products?gender=women" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Women
-              </Link>
-              <Link 
-                to="/products?gender=kids" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Kids
-              </Link>
-              
+          <div className="lg:hidden border-t border-gray-100 bg-white/95 backdrop-blur-xl">
+            <div className="px-4 py-6 space-y-6">
               {/* Mobile Search */}
-              <form onSubmit={handleSearch} className="mt-4">
+              <form onSubmit={handleSearch} className="w-full">
                 <div className="relative">
                   <input
                     type="text"
                     placeholder="Search products..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
                   />
-                  <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                 </div>
               </form>
-            </nav>
+              
+              {/* Mobile Navigation */}
+              <nav className="grid grid-cols-2 gap-4">
+                <Link 
+                  to="/" 
+                  className="flex items-center justify-center py-3 px-4 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-300 font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link 
+                  to="/products" 
+                  className="flex items-center justify-center py-3 px-4 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-300 font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Products
+                </Link>
+                <Link 
+                  to="/products?gender=men" 
+                  className="flex items-center justify-center py-3 px-4 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-300 font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Men
+                </Link>
+                <Link 
+                  to="/products?gender=women" 
+                  className="flex items-center justify-center py-3 px-4 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-300 font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Women
+                </Link>
+                <Link 
+                  to="/products?gender=kids" 
+                  className="flex items-center justify-center py-3 px-4 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-300 font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Kids
+                </Link>
+                {isAuthenticated && (
+                  <Link 
+                    to="/wishlist" 
+                    className="flex items-center justify-center py-3 px-4 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-300 font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <Heart className="h-4 w-4 mr-2" />
+                    Wishlist
+                  </Link>
+                )}
+              </nav>
+              
+              {/* Mobile Auth Actions */}
+              {!isAuthenticated && (
+                <div className="flex flex-col space-y-3 pt-4 border-t border-gray-100">
+                  <Link
+                    to="/login"
+                    className="w-full text-center py-3 px-4 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-300 font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="w-full text-center py-3 px-4 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-xl hover:from-primary-700 hover:to-secondary-700 transition-all duration-300 font-medium shadow-md"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>

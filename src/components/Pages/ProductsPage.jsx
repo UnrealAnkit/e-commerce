@@ -75,19 +75,45 @@ const ProductsPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="animate-pulse">
-            <div className="h-8 bg-gray-200 rounded w-1/4 mb-8"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[...Array(8)].map((_, i) => (
-                <div key={i} className="bg-white rounded-lg shadow p-4">
-                  <div className="h-48 bg-gray-200 rounded mb-4"></div>
-                  <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
-                  <div className="h-6 bg-gray-200 rounded w-1/4"></div>
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Sidebar Skeleton */}
+            <div className="lg:w-1/4">
+              <div className="bg-white rounded-2xl shadow-soft p-6 animate-pulse">
+                <div className="h-6 bg-gray-200 rounded-lg w-1/3 mb-4"></div>
+                <div className="space-y-4">
+                  <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+                  <div className="h-10 bg-gray-200 rounded-xl"></div>
+                  <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+                  <div className="h-10 bg-gray-200 rounded-xl"></div>
+                  <div className="h-4 bg-gray-200 rounded w-1/3"></div>
+                  <div className="h-10 bg-gray-200 rounded-xl"></div>
+                  <div className="h-10 bg-gray-200 rounded-xl"></div>
                 </div>
-              ))}
+              </div>
+            </div>
+            
+            {/* Main Content Skeleton */}
+            <div className="lg:w-3/4">
+              <div className="animate-pulse mb-6">
+                <div className="h-8 bg-gray-200 rounded-lg w-1/3 mb-2"></div>
+                <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[...Array(9)].map((_, i) => (
+                  <div key={i} className="bg-white rounded-3xl shadow-soft overflow-hidden animate-pulse">
+                    <div className="h-48 lg:h-56 bg-gray-200"></div>
+                    <div className="p-5 space-y-3">
+                      <div className="h-5 bg-gray-200 rounded w-3/4"></div>
+                      <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                      <div className="h-4 bg-gray-200 rounded w-1/3"></div>
+                      <div className="h-12 bg-gray-200 rounded-2xl"></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -111,71 +137,71 @@ const ProductsPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters Sidebar */}
           <div className="lg:w-1/4">
-            <div className="bg-white rounded-lg shadow p-6">
-              <h2 className="text-lg font-semibold mb-4 flex items-center">
-                <Filter className="h-5 w-5 mr-2" />
+            <div className="bg-white rounded-2xl shadow-soft p-6 border border-gray-100 sticky top-24">
+              <h2 className="text-xl font-bold mb-6 flex items-center bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                <Filter className="h-6 w-6 mr-3 text-primary-600" />
                 Filters
               </h2>
               
               {/* Search */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Search
+                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                  Search Products
                 </label>
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                   <input
                     type="text"
                     placeholder="Search products..."
                     value={filters.search}
                     onChange={(e) => handleFilterChange('search', e.target.value)}
-                    className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
                   />
                 </div>
               </div>
 
               {/* Gender Filter */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Gender
+                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                  Category
                 </label>
                 <select
                   value={filters.gender}
                   onChange={(e) => handleFilterChange('gender', e.target.value)}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full border border-gray-200 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white text-gray-900"
                 >
-                  <option value="">All</option>
-                  <option value="men">Men</option>
-                  <option value="women">Women</option>
-                  <option value="kids">Kids</option>
+                  <option value="">All Categories</option>
+                  <option value="men">Men's Fashion</option>
+                  <option value="women">Women's Fashion</option>
+                  <option value="kids">Kids' Fashion</option>
                   <option value="unisex">Unisex</option>
                 </select>
               </div>
 
               {/* Price Range */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-700 mb-3">
                   Price Range
                 </label>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <input
                     type="number"
-                    placeholder="Min Price"
+                    placeholder="Min Price ($)"
                     value={filters.minPrice}
                     onChange={(e) => handleFilterChange('minPrice', e.target.value)}
-                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full border border-gray-200 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
                   />
                   <input
                     type="number"
-                    placeholder="Max Price"
+                    placeholder="Max Price ($)"
                     value={filters.maxPrice}
                     onChange={(e) => handleFilterChange('maxPrice', e.target.value)}
-                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full border border-gray-200 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
                   />
                 </div>
               </div>
@@ -192,9 +218,9 @@ const ProductsPage = () => {
                   });
                   setSearchParams({});
                 }}
-                className="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-200 transition-colors"
+                className="w-full bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 py-3 px-4 rounded-2xl hover:from-gray-200 hover:to-gray-300 transition-all duration-300 font-medium transform hover:scale-105"
               >
-                Clear Filters
+                Clear All Filters
               </button>
             </div>
           </div>
@@ -219,27 +245,49 @@ const ProductsPage = () => {
                 <p className="text-gray-600">Try adjusting your filters or search terms.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {products.map((product, index) => (
-                  <div key={product._id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
+                  <div key={product._id} className="bg-white rounded-3xl shadow-soft hover:shadow-strong transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up group" style={{animationDelay: `${index * 0.1}s`}}>
                     <Link to={`/products/${product._id}`}>
-                      <div className="aspect-w-1 aspect-h-1 w-full">
+                      <div className="relative h-48 lg:h-56 overflow-hidden">
                         <img
                           src={product.images[0] || 'https://via.placeholder.com/300x300?text=No+Image'}
                           alt={product.name}
-                          className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        
+                        {/* Wishlist Button */}
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleAddToWishlist(product._id);
+                          }}
+                          className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md hover:bg-white hover:scale-110 transition-all duration-300"
+                        >
+                          <Heart className="h-5 w-5 text-gray-600 hover:text-red-500 transition-colors duration-300" />
+                        </button>
+                        
+                        {/* Discount Badge */}
+                        {product.originalPrice && product.originalPrice > product.price && (
+                          <div className="absolute top-3 left-3 bg-gradient-to-r from-red-500 to-red-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                            {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
+                          </div>
+                        )}
                       </div>
                     </Link>
                     
-                    <div className="p-4">
+                    <div className="p-5">
                       <Link to={`/products/${product._id}`}>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2 hover:text-purple-600 transition-colors duration-300">
-                          {product.name}
-                        </h3>
+                        <div className="mb-3">
+                          <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-primary-600 transition-colors duration-300 line-clamp-1">
+                            {product.name}
+                          </h3>
+                          <p className="text-gray-500 text-sm font-medium capitalize">{product.gender}</p>
+                        </div>
                       </Link>
                       
-                      <div className="flex items-center mb-2">
+                      <div className="flex items-center mb-3">
                         <div className="flex items-center">
                           {[...Array(5)].map((_, i) => (
                             <Star
@@ -247,47 +295,36 @@ const ProductsPage = () => {
                               className={`h-4 w-4 ${
                                 i < Math.floor(product.rating || 0)
                                   ? 'text-yellow-400 fill-current'
-                                  : 'text-gray-300'
+                                  : 'text-gray-200'
                               }`}
                             />
                           ))}
                         </div>
-                        <span className="text-sm text-gray-600 ml-2">
+                        <span className="text-sm text-gray-500 ml-2 font-medium">
                           ({product.numReviews || 0})
                         </span>
                       </div>
                       
-                      <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center space-x-2">
                           <span className="text-xl font-bold text-gray-900">
                             ${product.price}
                           </span>
                           {product.originalPrice && product.originalPrice > product.price && (
-                            <span className="text-sm text-gray-500 line-through">
+                            <span className="text-sm text-gray-400 line-through">
                               ${product.originalPrice}
                             </span>
                           )}
                         </div>
-                        <span className="text-sm text-gray-600 capitalize">
-                          {product.gender}
-                        </span>
                       </div>
                       
-                      <div className="flex space-x-2">
-                        <button
-                          onClick={() => handleAddToCart(product)}
-                          className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-md hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center shadow-lg hover:shadow-xl"
-                        >
-                          <ShoppingCart className="h-4 w-4 mr-2" />
-                          Add to Cart
-                        </button>
-                        <button
-                          onClick={() => handleAddToWishlist(product._id)}
-                          className="p-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
-                        >
-                          <Heart className="h-4 w-4 text-gray-600" />
-                        </button>
-                      </div>
+                      <button
+                        onClick={() => handleAddToCart(product)}
+                        className="w-full bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-3 rounded-2xl hover:from-primary-700 hover:to-secondary-700 transition-all duration-300 transform hover:scale-105 font-medium flex items-center justify-center shadow-md hover:shadow-lg"
+                      >
+                        <ShoppingCart className="h-4 w-4 mr-2" />
+                        Add to Cart
+                      </button>
                     </div>
                   </div>
                 ))}
