@@ -27,6 +27,8 @@ import AdminLogin from './components/Admin/AdminLogin';
 import UsersManagement from './components/Admin/UsersManagement';
 import AdminCategoriesManagement from './components/Admin/AdminCategoriesManagement';
 import AdminProductsManagement from './components/Admin/AdminProductsManagement';
+import ErrorBoundary from './components/UI/ErrorBoundary';
+import ConnectionStatus from './components/UI/ConnectionStatus';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -68,11 +70,14 @@ const AdminRoute = ({ children }) => {
 // App Content Component
 const AppContent = () => {
   const dispatch = useDispatch();
-  const { token } = useSelector((state) => state.auth);
+  const { token, error } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (token) {
-      dispatch(getCurrentUser());
+      dispatch(getCurrentUser()).catch((error) => {
+        console.log('Failed to get user data:', error);
+        // Silently handle the error - user can still use the app
+      });
     }
   }, [dispatch, token]);
 
@@ -80,6 +85,7 @@ const AppContent = () => {
     <Router>
       <div className="min-h-screen flex flex-col">
         <Header />
+        <ConnectionStatus />
         <main className="flex-grow">
           <Routes>
             {/* Public Routes */}
@@ -178,9 +184,11 @@ const AppContent = () => {
 // Main App Component
 function App() {
   return (
-    <Provider store={store}>
-      <AppContent />
-    </Provider>
+    <ErrorBoundary>
+      <Provider store={store}>
+        <AppContent />
+      </Provider>
+    </ErrorBoundary>
   );
 }
 

@@ -35,6 +35,14 @@ export const getCurrentUser = createAsyncThunk(
       const response = await authAPI.getCurrentUser();
       return response;
     } catch (error) {
+      // Handle network/timeout errors gracefully
+      if (error.code === 'ECONNABORTED' || error.message.includes('timeout')) {
+        return rejectWithValue('Connection timeout. Please try again.');
+      } else if (error.code === 'ERR_NETWORK' || error.message.includes('Network Error')) {
+        return rejectWithValue('Network error. Please check your connection.');
+      } else if (error.response?.status === 401) {
+        return rejectWithValue('Session expired. Please login again.');
+      }
       return rejectWithValue(error.message || 'Failed to get user');
     }
   }

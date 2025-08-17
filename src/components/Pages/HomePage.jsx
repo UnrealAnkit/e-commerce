@@ -115,18 +115,21 @@ const HomePage = () => {
   const categories = [
     {
       name: 'Men',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
-      link: '/products?gender=men'
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&h=800&q=80',
+      link: '/products?gender=men',
+      description: 'Sophisticated styles for the modern gentleman'
     },
     {
       name: 'Women',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400',
-      link: '/products?gender=women'
+      image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80',
+      link: '/products?gender=women',
+      description: 'Elegant fashion for the confident woman'
     },
     {
       name: 'Kids',
-      image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400',
-      link: '/products?gender=kids'
+      image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=600&h=800&q=80',
+      link: '/products?gender=kids',
+      description: 'Fun and comfortable styles for little ones'
     }
   ];
 
@@ -244,55 +247,95 @@ const HomePage = () => {
   return (
     <div className="min-h-screen">
              {/* Hero Section */}
-       <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 text-white overflow-hidden min-h-screen flex items-center">
-                 {/* Enhanced background elements */}
+       <section className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden min-h-screen flex items-center">
+                 {/* Premium background with mesh gradient */}
          <div className="absolute inset-0">
-           <div className="absolute top-10 left-10 w-20 h-20 lg:w-32 lg:h-32 bg-white/10 rounded-full animate-float"></div>
-           <div className="absolute top-20 right-20 w-16 h-16 lg:w-24 lg:h-24 bg-white/10 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
-           <div className="absolute bottom-10 left-1/4 w-12 h-12 lg:w-20 lg:h-20 bg-white/10 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
-           <div className="absolute bottom-20 right-1/3 w-24 h-24 lg:w-40 lg:h-40 bg-white/10 rounded-full animate-float" style={{animationDelay: '3s'}}></div>
-           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+           {/* Animated mesh background */}
+           <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/30 to-pink-900/20"></div>
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.3),transparent_50%)]"></div>
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.2),transparent_50%)]"></div>
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(216,180,254,0.2),transparent_50%)]"></div>
+           
+           {/* Floating premium elements */}
+           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{animationDelay: '0s'}}></div>
+           <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white/30 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+           <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-white/35 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
+           <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white/25 rounded-full animate-pulse" style={{animationDelay: '3s'}}></div>
+           
+           {/* Premium geometric shapes */}
+           <div className="absolute top-20 left-20 w-20 h-20 border border-white/10 rounded-full animate-float transform rotate-12"></div>
+           <div className="absolute bottom-32 right-32 w-16 h-16 border border-white/10 rounded-lg animate-float transform -rotate-12" style={{animationDelay: '2s'}}></div>
          </div>
         
-                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10">
+                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
            <div className="text-center">
-             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 lg:mb-8 animate-fade-in-up text-white leading-tight">
-               Discover Your
-               <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-                 Perfect Style
+             {/* Premium badge */}
+             <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-sm font-medium text-white/90 mb-8 animate-fade-in-up">
+               <div className="w-2 h-2 bg-emerald-400 rounded-full mr-3 animate-pulse"></div>
+               Premium Fashion • Curated Collections
+             </div>
+             
+             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 lg:mb-8 animate-fade-in-up text-white leading-[0.9] tracking-tight">
+               Elevate Your
+               <span className="block bg-gradient-to-r from-violet-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent font-black">
+                 Fashion Game
                </span>
              </h1>
-               <p className="text-lg sm:text-xl lg:text-2xl mb-4 lg:mb-6 text-white/90 animate-fade-in-up max-w-3xl mx-auto leading-relaxed" style={{animationDelay: '0.2s'}}>
-                 Shop the latest trends in fashion and accessories with confidence. Quality guaranteed, style delivered.
+             
+               <p className="text-xl sm:text-2xl lg:text-3xl mb-6 lg:mb-8 text-white/80 animate-fade-in-up max-w-4xl mx-auto leading-relaxed font-light" style={{animationDelay: '0.2s'}}>
+                 Discover luxury fashion and premium accessories crafted for the modern trendsetter. 
+                 <span className="block mt-2 text-lg lg:text-xl text-white/60">Where style meets sophistication</span>
                </p>
-               <div className="flex flex-wrap justify-center items-center gap-4 lg:gap-8 mb-8 lg:mb-12 text-sm lg:text-base animate-fade-in-up" style={{animationDelay: '0.3s'}}>
-                 <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                   <span className="text-yellow-300 mr-2">✨</span>
-                   Free Shipping $50+
+               
+               {/* Premium features */}
+               <div className="flex flex-wrap justify-center items-center gap-6 lg:gap-10 mb-12 lg:mb-16 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+                 <div className="flex items-center bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 hover:bg-white/20 transition-all duration-300">
+                   <div className="w-10 h-10 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-xl flex items-center justify-center mr-4">
+                     <span className="text-white text-sm font-bold">✨</span>
+                   </div>
+                   <div className="text-left">
+                     <div className="text-white font-semibold">Free Premium Shipping</div>
+                     <div className="text-white/60 text-sm">Orders over $75</div>
+                   </div>
                  </div>
-                 <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                   <span className="text-green-300 mr-2">🎉</span>
-                   30-Day Returns
+                 
+                 <div className="flex items-center bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 hover:bg-white/20 transition-all duration-300">
+                   <div className="w-10 h-10 bg-gradient-to-r from-violet-400 to-purple-400 rounded-xl flex items-center justify-center mr-4">
+                     <span className="text-white text-sm font-bold">🛡️</span>
+                   </div>
+                   <div className="text-left">
+                     <div className="text-white font-semibold">60-Day Returns</div>
+                     <div className="text-white/60 text-sm">No questions asked</div>
+                   </div>
                  </div>
-                 <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                   <span className="text-blue-300 mr-2">🔒</span>
-                   Secure Payment
+                 
+                 <div className="flex items-center bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 hover:bg-white/20 transition-all duration-300">
+                   <div className="w-10 h-10 bg-gradient-to-r from-pink-400 to-rose-400 rounded-xl flex items-center justify-center mr-4">
+                     <span className="text-white text-sm font-bold">💎</span>
+                   </div>
+                   <div className="text-left">
+                     <div className="text-white font-semibold">Luxury Service</div>
+                     <div className="text-white/60 text-sm">24/7 Style Concierge</div>
+                   </div>
                  </div>
                </div>
-                             <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center animate-fade-in-up max-w-lg mx-auto" style={{animationDelay: '0.4s'}}>
+               
+                             <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center animate-fade-in-up max-w-2xl mx-auto" style={{animationDelay: '0.4s'}}>
                  <Link
                    to="/products"
-                   className="bg-white text-primary-700 px-8 lg:px-12 py-3 lg:py-4 text-lg font-bold rounded-2xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center justify-center group"
+                   className="group relative bg-gradient-to-r from-white via-gray-50 to-white text-slate-900 px-10 lg:px-14 py-4 lg:py-5 text-lg lg:text-xl font-bold rounded-2xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 inline-flex items-center justify-center overflow-hidden"
                  >
-                   Shop Now
-                   <ArrowRight className="ml-3 h-5 w-5 lg:h-6 lg:w-6 group-hover:translate-x-1 transition-transform" />
+                   <div className="absolute inset-0 bg-gradient-to-r from-violet-600/10 to-pink-600/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                   <span className="relative z-10">Explore Collection</span>
+                   <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform duration-300 relative z-10" />
                  </Link>
+                 
                  {!isAuthenticated && (
                    <Link
                      to="/register"
-                     className="border-2 border-white text-white px-8 lg:px-12 py-3 lg:py-4 text-lg font-bold rounded-2xl hover:bg-white hover:text-primary-700 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
+                     className="bg-transparent border-2 border-white/30 text-white px-10 lg:px-14 py-4 lg:py-5 text-lg lg:text-xl font-bold rounded-2xl hover:bg-white hover:text-slate-900 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
                    >
-                     Join Us
+                     Join the Elite
                    </Link>
                  )}
                </div>
@@ -320,74 +363,134 @@ const HomePage = () => {
       </section>
 
              {/* Categories Section */}
-       <section className="py-12 lg:py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                     <div className="text-center mb-12 lg:mb-16">
-             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent mb-4">Shop by Category</h2>
-             <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Explore our curated collections designed for every style, occasion, and personality</p>
+       <section className="py-16 lg:py-24 bg-gradient-to-b from-white via-gray-50/50 to-white relative">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 via-transparent to-pink-500/5"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                     <div className="text-center mb-16 lg:mb-20">
+             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-violet-100 to-pink-100 border border-violet-200 rounded-full text-sm font-semibold text-violet-700 mb-6">
+               <span className="w-2 h-2 bg-violet-500 rounded-full mr-2 animate-pulse"></span>
+               Curated Collections
+             </div>
+             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black bg-gradient-to-r from-slate-900 via-violet-900 to-slate-900 bg-clip-text text-transparent mb-6 leading-tight">
+               Shop by Category
+             </h2>
+             <p className="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+               Discover our premium collections designed for every style, occasion, and personality
+             </p>
            </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+           
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
             {categories.map((category, index) => (
                              <Link
                  key={category.name}
                  to={category.link}
-                 className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up"
-                 style={{animationDelay: `${index * 0.1}s`}}
+                 className="group relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-4 animate-fade-in-up border border-gray-100"
+                 style={{animationDelay: `${index * 0.15}s`}}
                >
-                                 <div className="relative h-64 lg:h-80">
+                                 <div className="relative h-80 lg:h-96 overflow-hidden">
                    <img
                      src={category.image}
                      alt={category.name}
-                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                     loading="lazy"
+                     onError={(e) => {
+                       // Try alternative images first
+                       if (category.name === 'Women' && !e.target.src.includes('woman-portrait')) {
+                         e.target.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80';
+                       } else if (category.name === 'Women' && !e.target.src.includes('placeholder')) {
+                         e.target.src = 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80';
+                       } else {
+                         e.target.src = `https://via.placeholder.com/600x800/8B5CF6/FFFFFF?text=${category.name}`;
+                       }
+                     }}
                    />
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                 </div>
-                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                   <h3 className="text-white text-2xl lg:text-3xl font-bold mb-2 transform group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">{category.name}</h3>
-                   <p className="text-white/90 text-sm lg:text-base mb-4 transform group-hover:scale-105 transition-transform duration-300 font-medium">Explore Collection</p>
-                   <div className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                     Shop Now →
+                   {/* Premium overlay */}
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                   
+                   {/* Floating elements */}
+                   <div className="absolute top-4 right-4 w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                     <ArrowRight className="w-5 h-5 text-white" />
                    </div>
                  </div>
+                 
+                 <div className="absolute bottom-0 left-0 right-0 p-8">
+                   <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                     <h3 className="text-white text-3xl lg:text-4xl font-black mb-3 drop-shadow-2xl">
+                       {category.name}
+                     </h3>
+                     <p className="text-white/90 text-base lg:text-lg mb-4 font-medium leading-relaxed drop-shadow-lg">
+                       {category.description}
+                     </p>
+                     <div className="inline-flex items-center bg-white/20 backdrop-blur-xl border border-white/30 text-white px-6 py-3 rounded-2xl text-sm font-semibold opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                       Explore Collection
+                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                     </div>
+                   </div>
+                 </div>
+                 
+                 {/* Premium shimmer effect */}
+                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 opacity-0 group-hover:opacity-100"></div>
               </Link>
             ))}
           </div>
           
                      {/* Category Stats */}
-           <div className="mt-16 lg:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
-             <div className="bg-white rounded-2xl p-6 lg:p-8 text-center shadow-soft hover:shadow-medium transition-all duration-300 transform hover:-translate-y-1">
-               <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent mb-2">500+</div>
-               <div className="text-gray-600 text-base lg:text-lg font-medium">Men's Collection</div>
-               <div className="text-gray-400 text-sm mt-1">Latest Trends</div>
+           <div className="mt-20 lg:mt-24 grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-10">
+             <div className="group bg-gradient-to-br from-white to-gray-50/50 rounded-3xl p-8 lg:p-10 text-center shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                 <span className="text-white text-xl font-bold">👔</span>
+               </div>
+               <div className="text-4xl lg:text-5xl font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-3">500+</div>
+               <div className="text-gray-700 text-lg lg:text-xl font-bold mb-2">Men's Collection</div>
+               <div className="text-gray-500 text-sm">Sophisticated & Timeless</div>
              </div>
-             <div className="bg-white rounded-2xl p-6 lg:p-8 text-center shadow-soft hover:shadow-medium transition-all duration-300 transform hover:-translate-y-1">
-               <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent mb-2">800+</div>
-               <div className="text-gray-600 text-base lg:text-lg font-medium">Women's Collection</div>
-               <div className="text-gray-400 text-sm mt-1">Fashion Forward</div>
+             
+             <div className="group bg-gradient-to-br from-white to-gray-50/50 rounded-3xl p-8 lg:p-10 text-center shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+               <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                 <span className="text-white text-xl font-bold">👗</span>
+               </div>
+               <div className="text-4xl lg:text-5xl font-black bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent mb-3">800+</div>
+               <div className="text-gray-700 text-lg lg:text-xl font-bold mb-2">Women's Collection</div>
+               <div className="text-gray-500 text-sm">Elegant & Fashion Forward</div>
              </div>
-             <div className="bg-white rounded-2xl p-6 lg:p-8 text-center shadow-soft hover:shadow-medium transition-all duration-300 transform hover:-translate-y-1">
-               <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent mb-2">300+</div>
-               <div className="text-gray-600 text-base lg:text-lg font-medium">Kids' Collection</div>
-               <div className="text-gray-400 text-sm mt-1">Fun & Comfortable</div>
+             
+             <div className="group bg-gradient-to-br from-white to-gray-50/50 rounded-3xl p-8 lg:p-10 text-center shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                 <span className="text-white text-xl font-bold">🧸</span>
+               </div>
+               <div className="text-4xl lg:text-5xl font-black bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent mb-3">300+</div>
+               <div className="text-gray-700 text-lg lg:text-xl font-bold mb-2">Kids' Collection</div>
+               <div className="text-gray-500 text-sm">Fun & Comfortable</div>
              </div>
            </div>
         </div>
       </section>
 
              {/* Featured Products */}
-       <section className="py-16 bg-gradient-to-br from-white via-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                     <div className="flex justify-between items-center mb-12">
-             <div>
-               <h2 className="text-3xl md:text-4xl font-bold text-gradient-primary animate-zoom-in mb-4">Featured Products</h2>
-               <p className="text-lg text-gray-600 animate-fade-in-up" style={{animationDelay: '0.2s'}}>Handpicked styles for every occasion</p>
+       <section className="py-20 lg:py-28 bg-gradient-to-b from-white via-slate-50/30 to-white relative">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-purple-500/5"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                     <div className="text-center mb-16 lg:mb-20">
+             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200 rounded-full text-sm font-semibold text-blue-700 mb-6">
+               <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
+               Handpicked Selection
              </div>
+             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent mb-6 leading-tight">
+               Featured Collection
+             </h2>
+             <p className="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-8">
+               Discover our premium selection of handpicked styles crafted for the discerning fashion enthusiast
+             </p>
              <Link
                to="/products"
-               className="text-purple-600 hover:text-purple-700 font-semibold flex items-center group transition-all duration-300 hover:scale-105 animate-pulse-glow"
+               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-slate-900 to-blue-900 text-white rounded-2xl hover:from-slate-800 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 font-semibold shadow-xl hover:shadow-2xl"
              >
-               View All
-               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform animate-wave" />
+               View Full Collection
+               <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
              </Link>
            </div>
 

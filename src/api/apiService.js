@@ -2,12 +2,14 @@ import axios from 'axios';
 
 const API_BASE_URL = 'https://e-commerce-du5a.onrender.com/api';
 
-// Create axios instance
+// Create axios instance with better config
 const api = axios.create({
   baseURL: API_BASE_URL,
+  timeout: 15000, // 15 seconds timeout
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: false,
 });
 
 // Debug: Log the base URL
@@ -31,14 +33,25 @@ api.interceptors.request.use(
 // Response interceptor to handle errors
 api.interceptors.response.use(
   (response) => {
-    console.log('API Response:', response.status, response.config.url, 'Data:', response.data);
+    console.log('API Response:', response.status, response.config.url);
     return response;
   },
   (error) => {
-    console.error('API Error:', error.response?.status, error.config?.url, 'Error:', error.response?.data);
-    if (error.response?.status === 401) {
-      localStorage.removeItem('token');
-      window.location.href = '/login';
+    // Better error handling
+    if (error.code === 'ECONNABORTED' || error.message.includes('timeout')) {
+      console.error('API Timeout:', error.config?.url);
+      error.message = 'Request timeout. Please check your connection and try again.';
+    } else if (error.code === 'ERR_NETWORK' || error.message.includes('Network Error')) {
+      console.error('Network Error:', error.config?.url);
+      error.message = 'Network error. Please check your connection.';
+    } else if (error.response) {
+      console.error('API Error:', error.response?.status, error.config?.url, 'Error:', error.response?.data);
+      if (error.response?.status === 401) {
+        localStorage.removeItem('token');
+        // Don't redirect immediately, let components handle it
+      }
+    } else {
+      console.error('Unknown Error:', error.message);
     }
     return Promise.reject(error);
   }
